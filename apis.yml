@@ -1,0 +1,84 @@
+name: Amazon Elastic Block Store (EBS)
+description: Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance in the same Availability Zone, offering consistent and low-latency performance for workloads that require persistent storage.
+image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+url: https://aws.amazon.com/ebs/
+created: '2024-01-15'
+modified: '2026-03-13'
+tags:
+  - AWS
+  - Amazon Web Services
+  - EBS
+  - Block Storage
+  - Storage
+  - Volumes
+  - Snapshots
+  - EC2
+apis:
+  - name: Amazon EBS API
+    description: API for managing Amazon EBS volumes, snapshots, and related resources through the EC2 API.
+    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+    url: https://aws.amazon.com/ebs/
+    baseURL: https://ec2.amazonaws.com
+    properties:
+      - type: documentation
+        url: https://docs.aws.amazon.com/ebs/latest/userguide/
+      - type: openapi
+        url: openapi/amazon-ebs-openapi.yml
+      - type: json-schema
+        url: json-schema/amazon-ebs-volume-schema.json
+      - type: json-ld
+        url: json-ld/amazon-ebs-context.jsonld
+      - type: pricing
+        url: https://aws.amazon.com/ebs/pricing/
+      - type: getting-started
+        url: https://aws.amazon.com/ebs/getting-started/
+      - type: faq
+        url: https://aws.amazon.com/ebs/faqs/
+      - type: user-guide
+        url: https://docs.aws.amazon.com/ebs/latest/userguide/
+      - type: api-reference
+        url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+      - type: cli-reference
+        url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+      - type: security
+        url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+common:
+  - type: portal
+    url: https://aws.amazon.com/
+  - type: website
+    url: https://aws.amazon.com/
+  - type: documentation
+    url: https://docs.aws.amazon.com/
+  - type: terms-of-service
+    url: https://aws.amazon.com/service-terms/
+  - type: privacy-policy
+    url: https://aws.amazon.com/privacy/
+  - type: support
+    url: https://aws.amazon.com/support/
+  - type: blog
+    url: https://aws.amazon.com/blogs/
+  - type: github
+    url: https://github.com/aws
+  - type: console
+    url: https://console.aws.amazon.com/
+  - type: sign-up
+    url: https://portal.aws.amazon.com/billing/signup
+  - type: login
+    url: https://signin.aws.amazon.com/
+  - type: status
+    url: https://status.aws.amazon.com/
+  - type: knowledge-center
+    url: https://repost.aws/knowledge-center
+  - type: youtube
+    url: https://www.youtube.com/user/AmazonWebServices
+  - type: stack-overflow
+    url: https://stackoverflow.com/questions/tagged/amazon-web-services
+  - type: contact
+    url: https://aws.amazon.com/contact-us/
+  - type: security
+    url: https://aws.amazon.com/security/
+  - type: compliance
+    url: https://aws.amazon.com/compliance/
+maintainer:
+  name: Kin Lane
+  email: kin@apievangelist.com

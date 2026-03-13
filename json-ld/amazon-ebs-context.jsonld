@@ -1,0 +1,123 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "aws": "https://aws.amazon.com/ebs/",
+    "ec2": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/",
+    "Volume": {
+      "@id": "aws:Volume",
+      "@type": "DigitalDocument",
+      "@context": {
+        "volumeId": {
+          "@id": "aws:volumeId",
+          "@type": "xsd:string"
+        },
+        "size": {
+          "@id": "schema:contentSize",
+          "@type": "xsd:integer"
+        },
+        "volumeType": {
+          "@id": "aws:volumeType",
+          "@type": "xsd:string"
+        },
+        "state": {
+          "@id": "schema:status",
+          "@type": "xsd:string"
+        },
+        "availabilityZone": {
+          "@id": "aws:availabilityZone",
+          "@type": "xsd:string"
+        },
+        "createTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "encrypted": {
+          "@id": "aws:encrypted",
+          "@type": "xsd:boolean"
+        },
+        "kmsKeyId": {
+          "@id": "aws:kmsKeyId",
+          "@type": "xsd:string"
+        },
+        "iops": {
+          "@id": "aws:iops",
+          "@type": "xsd:integer"
+        },
+        "throughput": {
+          "@id": "aws:throughput",
+          "@type": "xsd:integer"
+        },
+        "snapshotId": {
+          "@id": "aws:snapshotId",
+          "@type": "xsd:string"
+        },
+        "multiAttachEnabled": {
+          "@id": "aws:multiAttachEnabled",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+    "Snapshot": {
+      "@id": "aws:Snapshot",
+      "@type": "DigitalDocument",
+      "@context": {
+        "snapshotId": {
+          "@id": "aws:snapshotId",
+          "@type": "xsd:string"
+        },
+        "volumeId": {
+          "@id": "aws:volumeId",
+          "@type": "xsd:string"
+        },
+        "state": {
+          "@id": "schema:status",
+          "@type": "xsd:string"
+        },
+        "startTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "volumeSize": {
+          "@id": "schema:contentSize",
+          "@type": "xsd:integer"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "encrypted": {
+          "@id": "aws:encrypted",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+    "Attachment": {
+      "@id": "aws:Attachment",
+      "@type": "Thing",
+      "@context": {
+        "volumeId": {
+          "@id": "aws:volumeId",
+          "@type": "xsd:string"
+        },
+        "instanceId": {
+          "@id": "aws:instanceId",
+          "@type": "xsd:string"
+        },
+        "device": {
+          "@id": "aws:device",
+          "@type": "xsd:string"
+        },
+        "state": {
+          "@id": "schema:status",
+          "@type": "xsd:string"
+        },
+        "attachTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}
