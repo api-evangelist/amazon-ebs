@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Amazon Elastic Block Store (EBS) API
+  title: Amazon EBS Amazon Elastic Block Store (EBS) API
   description: Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.
   version: '2016-11-15'
   contact:
@@ -17,7 +17,7 @@ paths:
   /:
     get:
       operationId: describeVolumes
-      summary: Describe Volumes
+      summary: Amazon EBS Describe Volumes
       description: Describes the specified EBS volumes or all of your EBS volumes.
       parameters:
         - name: Action
@@ -59,7 +59,7 @@ paths:
                 $ref: '#/components/schemas/DescribeVolumesResult'
     post:
       operationId: createVolume
-      summary: Create Volume
+      summary: Amazon EBS Create Volume
       description: Creates an EBS volume that can be attached to an instance in the same Availability Zone.
       parameters:
         - name: Action
@@ -127,7 +127,7 @@ paths:
   /#DeleteVolume:
     post:
       operationId: deleteVolume
-      summary: Delete Volume
+      summary: Amazon EBS Delete Volume
       description: Deletes the specified EBS volume. The volume must be in the available state and not attached to any instance.
       parameters:
         - name: Action
@@ -162,7 +162,7 @@ paths:
   /#AttachVolume:
     post:
       operationId: attachVolume
-      summary: Attach Volume
+      summary: Amazon EBS Attach Volume
       description: Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.
       parameters:
         - name: Action
@@ -205,7 +205,7 @@ paths:
   /#DetachVolume:
     post:
       operationId: detachVolume
-      summary: Detach Volume
+      summary: Amazon EBS Detach Volume
       description: Detaches an EBS volume from an instance.
       parameters:
         - name: Action
@@ -249,7 +249,7 @@ paths:
   /#CreateSnapshot:
     post:
       operationId: createSnapshot
-      summary: Create Snapshot
+      summary: Amazon EBS Create Snapshot
       description: Creates a snapshot of an EBS volume and stores it in Amazon S3.
       parameters:
         - name: Action
@@ -287,7 +287,7 @@ paths:
   /#DescribeSnapshots:
     get:
       operationId: describeSnapshots
-      summary: Describe Snapshots
+      summary: Amazon EBS Describe Snapshots
       description: Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.
       parameters:
         - name: Action
