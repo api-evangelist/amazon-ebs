@@ -159,6 +159,8 @@ paths:
           description: Successful deletion response.
         '400':
           description: Bad request error.
+      tags:
+        - '#DeleteVolume'
   /#AttachVolume:
     post:
       operationId: attachVolume
@@ -202,6 +204,8 @@ paths:
           description: Successful response with attachment details.
         '400':
           description: Bad request error.
+      tags:
+        - '#AttachVolume'
   /#DetachVolume:
     post:
       operationId: detachVolume
@@ -246,6 +250,8 @@ paths:
           description: Successful response with detachment details.
         '400':
           description: Bad request error.
+      tags:
+        - '#DetachVolume'
   /#CreateSnapshot:
     post:
       operationId: createSnapshot
@@ -284,6 +290,8 @@ paths:
           description: Successful response with the snapshot details.
         '400':
           description: Bad request error.
+      tags:
+        - '#CreateSnapshot'
   /#DescribeSnapshots:
     get:
       operationId: describeSnapshots
@@ -325,6 +333,8 @@ paths:
           description: Successful response with snapshot details.
         '400':
           description: Bad request error.
+      tags:
+        - '#DescribeSnapshots'
 components:
   schemas:
     DescribeVolumesResult:
@@ -413,3 +423,9 @@ components:
       name: Authorization
       in: header
       description: AWS Signature Version 4 authentication.
+tags:
+  - name: '#AttachVolume'
+  - name: '#CreateSnapshot'
+  - name: '#DeleteVolume'
+  - name: '#DescribeSnapshots'
+  - name: '#DetachVolume'

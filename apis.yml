@@ -5,14 +5,14 @@ url: https://aws.amazon.com/ebs/
 created: '2024-01-15'
 modified: '2026-03-16'
 tags:
-  - AWS
   - Amazon Web Services
-  - EBS
+  - AWS
   - Block Storage
+  - EBS
+  - EC2
+  - Snapshots
   - Storage
   - Volumes
-  - Snapshots
-  - EC2
 apis:
   - name: Amazon EBS API
     description: API for managing Amazon EBS volumes, snapshots, and related resources through the EC2 API.
