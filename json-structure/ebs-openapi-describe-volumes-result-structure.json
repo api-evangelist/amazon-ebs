@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ebs/refs/heads/main/json-structure/ebs-openapi-describe-volumes-result-structure.json",
+  "name": "DescribeVolumesResult",
+  "description": "DescribeVolumesResult schema from Amazon EBS Amazon Elastic Block Store (EBS) API",
+  "type": "object",
+  "properties": {
+    "volumeSet": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Volume"
+      }
+    },
+    "nextToken": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon EBS Block Storage Management"
+  description: "Unified capability for managing EBS volumes, snapshots, and encryption for cloud storage administrators."
+  tags:
+    - Amazon EBS
+    - AWS
+    - Storage
+    - Block Storage
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - import: ebs
+      location: ./shared/ebs.yaml
+
+  exposes:
+    - type: rest
+      port: 8082
+      namespace: ebs-api
+      description: "Unified REST API for Block Storage Management."
+      resources:
+        - path: /v1/resource
+          name: describeVolumes
+          description: "Amazon EBS Describe Volumes"
+          operations:
+            - method: GET
+              name: describeVolumes
+              description: "Amazon EBS Describe Volumes"
+              call: "ebs.describeVolumes"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: createVolume
+          description: "Amazon EBS Create Volume"
+          operations:
+            - method: POST
+              name: createVolume
+              description: "Amazon EBS Create Volume"
+              call: "ebs.createVolume"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#DeleteVolume
+          name: deleteVolume
+          description: "Amazon EBS Delete Volume"
+          operations:
+            - method: POST
+              name: deleteVolume
+              description: "Amazon EBS Delete Volume"
+              call: "ebs.deleteVolume"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#AttachVolume
+          name: attachVolume
+          description: "Amazon EBS Attach Volume"
+          operations:
+            - method: POST
+              name: attachVolume
+              description: "Amazon EBS Attach Volume"
+              call: "ebs.attachVolume"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#DetachVolume
+          name: detachVolume
+          description: "Amazon EBS Detach Volume"
+          operations:
+            - method: POST
+              name: detachVolume
+              description: "Amazon EBS Detach Volume"
+              call: "ebs.detachVolume"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#CreateSnapshot
+          name: createSnapshot
+          description: "Amazon EBS Create Snapshot"
+          operations:
+            - method: POST
+              name: createSnapshot
+              description: "Amazon EBS Create Snapshot"
+              call: "ebs.createSnapshot"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#DescribeSnapshots
+          name: describeSnapshots
+          description: "Amazon EBS Describe Snapshots"
+          operations:
+            - method: GET
+              name: describeSnapshots
+              description: "Amazon EBS Describe Snapshots"
+              call: "ebs.describeSnapshots"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9092
+      namespace: ebs-mcp
+      transport: http
+      description: "MCP server for AI-assisted Block Storage Management."
+      tools:
+        - name: describe-volumes
+          description: "Amazon EBS Describe Volumes"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "ebs.describeVolumes"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-volume
+          description: "Amazon EBS Create Volume"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ebs.createVolume"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-volume
+          description: "Amazon EBS Delete Volume"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ebs.deleteVolume"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: attach-volume
+          description: "Amazon EBS Attach Volume"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ebs.attachVolume"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: detach-volume
+          description: "Amazon EBS Detach Volume"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ebs.detachVolume"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-snapshot
+          description: "Amazon EBS Create Snapshot"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ebs.createSnapshot"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: describe-snapshots
+          description: "Amazon EBS Describe Snapshots"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "ebs.describeSnapshots"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,218 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon EBS"
+  description: "Amazon Elastic Block Store persistent block storage for EC2 instances."
+  tags:
+    - Amazon EBS
+    - AWS
+    - Storage
+    - Block Storage
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: ebs
+      baseUri: https://ec2.amazonaws.com
+      description: "Amazon Elastic Block Store persistent block storage for EC2 instances."
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 Credential={{env.AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: root
+          path: /
+          description: "Operations for root resources."
+          operations:
+            - name: describeVolumes
+              method: GET
+              description: "Amazon EBS Describe Volumes"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+                - name: VolumeId
+                  in: query
+                  type: array
+                  required: false
+                  description: "The volume IDs to describe."
+                - name: MaxResults
+                  in: query
+                  type: integer
+                  required: false
+                  description: "The maximum number of volumes to return."
+                - name: NextToken
+                  in: query
+                  type: string
+                  required: false
+                  description: "The token for the next set of results."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: createVolume
+              method: POST
+              description: "Amazon EBS Create Volume"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #DeleteVolume
+          path: /#DeleteVolume
+          description: "Operations for #DeleteVolume resources."
+          operations:
+            - name: deleteVolume
+              method: POST
+              description: "Amazon EBS Delete Volume"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #AttachVolume
+          path: /#AttachVolume
+          description: "Operations for #AttachVolume resources."
+          operations:
+            - name: attachVolume
+              method: POST
+              description: "Amazon EBS Attach Volume"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #DetachVolume
+          path: /#DetachVolume
+          description: "Operations for #DetachVolume resources."
+          operations:
+            - name: detachVolume
+              method: POST
+              description: "Amazon EBS Detach Volume"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #CreateSnapshot
+          path: /#CreateSnapshot
+          description: "Operations for #CreateSnapshot resources."
+          operations:
+            - name: createSnapshot
+              method: POST
+              description: "Amazon EBS Create Snapshot"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #DescribeSnapshots
+          path: /#DescribeSnapshots
+          description: "Operations for #DescribeSnapshots resources."
+          operations:
+            - name: describeSnapshots
+              method: GET
+              description: "Amazon EBS Describe Snapshots"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+                - name: SnapshotId
+                  in: query
+                  type: array
+                  required: false
+                  description: "The snapshot IDs to describe."
+                - name: MaxResults
+                  in: query
+                  type: integer
+                  required: false
+                  description: "The maximum number of snapshots to return."
+                - name: NextToken
+                  in: query
+                  type: string
+                  required: false
+                  description: "The token for the next set of results."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."

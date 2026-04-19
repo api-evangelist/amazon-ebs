@@ -1,0 +1,5 @@
+{
+  "availabilityZone": "us-east-1a",
+  "volumeId": "vol-0abc123def456789",
+  "size": 7794
+}

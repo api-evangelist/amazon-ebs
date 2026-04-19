@@ -11,8 +11,8 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
 servers:
-  - url: https://ec2.amazonaws.com
-    description: Amazon EC2/EBS API endpoint
+- url: https://ec2.amazonaws.com
+  description: Amazon EC2/EBS API endpoint
 paths:
   /:
     get:
@@ -20,36 +20,42 @@ paths:
       summary: Amazon EBS Describe Volumes
       description: Describes the specified EBS volumes or all of your EBS volumes.
       parameters:
-        - name: Action
-          in: query
-          required: true
-          schema:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeVolumes
+        example: DescribeVolumes
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
+      - name: VolumeId
+        in: query
+        schema:
+          type: array
+          items:
             type: string
-            enum:
-              - DescribeVolumes
-        - name: Version
-          in: query
-          required: true
-          schema:
-            type: string
-            default: '2016-11-15'
-        - name: VolumeId
-          in: query
-          schema:
-            type: array
-            items:
-              type: string
-          description: The volume IDs to describe.
-        - name: MaxResults
-          in: query
-          schema:
-            type: integer
-          description: The maximum number of volumes to return.
-        - name: NextToken
-          in: query
-          schema:
-            type: string
-          description: The token for the next set of results.
+        description: The volume IDs to describe.
+        example:
+        - vol-0abc123def456789
+      - name: MaxResults
+        in: query
+        schema:
+          type: integer
+        description: The maximum number of volumes to return.
+        example: 1
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: The token for the next set of results.
+        example: example-string
       responses:
         '200':
           description: Successful response with volume details.
@@ -57,31 +63,44 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/DescribeVolumesResult'
+              examples:
+                describeVolumes200Example:
+                  summary: Default describeVolumes 200 response
+                  x-microcks-default: true
+                  value:
+                    volumeSet:
+                    - vol-0abc123def456789
+                    nextToken: example-string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createVolume
       summary: Amazon EBS Create Volume
       description: Creates an EBS volume that can be attached to an instance in the same Availability Zone.
       parameters:
-        - name: Action
-          in: query
-          required: true
-          schema:
-            type: string
-            enum:
-              - CreateVolume
-        - name: Version
-          in: query
-          required: true
-          schema:
-            type: string
-            default: '2016-11-15'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateVolume
+        example: CreateVolume
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
               required:
-                - AvailabilityZone
+              - AvailabilityZone
               properties:
                 AvailabilityZone:
                   type: string
@@ -92,13 +111,13 @@ paths:
                 VolumeType:
                   type: string
                   enum:
-                    - gp2
-                    - gp3
-                    - io1
-                    - io2
-                    - st1
-                    - sc1
-                    - standard
+                  - gp2
+                  - gp3
+                  - io1
+                  - io2
+                  - st1
+                  - sc1
+                  - standard
                   description: The volume type.
                 Iops:
                   type: integer
@@ -115,6 +134,11 @@ paths:
                 KmsKeyId:
                   type: string
                   description: The identifier of the KMS key for encryption.
+            examples:
+              createVolumeRequestExample:
+                summary: Default createVolume request
+                x-microcks-default: true
+                value: {}
       responses:
         '200':
           description: Successful response with the created volume details.
@@ -122,73 +146,98 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Volume'
+              examples:
+                createVolume200Example:
+                  summary: Default createVolume 200 response
+                  x-microcks-default: true
+                  value:
+                    volumeId: vol-0abc123def456789
+                    size: 1
+                    volumeType: vol-0abc123def456789
+                    state: creating
+                    availabilityZone: example-string
         '400':
           description: Bad request error.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /#DeleteVolume:
     post:
       operationId: deleteVolume
       summary: Amazon EBS Delete Volume
       description: Deletes the specified EBS volume. The volume must be in the available state and not attached to any instance.
       parameters:
-        - name: Action
-          in: query
-          required: true
-          schema:
-            type: string
-            enum:
-              - DeleteVolume
-        - name: Version
-          in: query
-          required: true
-          schema:
-            type: string
-            default: '2016-11-15'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DeleteVolume
+        example: DeleteVolume
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
               required:
-                - VolumeId
+              - VolumeId
               properties:
                 VolumeId:
                   type: string
                   description: The ID of the volume to delete.
+            examples:
+              deleteVolumeRequestExample:
+                summary: Default deleteVolume request
+                x-microcks-default: true
+                value: {}
       responses:
         '200':
           description: Successful deletion response.
         '400':
           description: Bad request error.
       tags:
-        - '#DeleteVolume'
+      - '#DeleteVolume'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /#AttachVolume:
     post:
       operationId: attachVolume
       summary: Amazon EBS Attach Volume
       description: Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.
       parameters:
-        - name: Action
-          in: query
-          required: true
-          schema:
-            type: string
-            enum:
-              - AttachVolume
-        - name: Version
-          in: query
-          required: true
-          schema:
-            type: string
-            default: '2016-11-15'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - AttachVolume
+        example: AttachVolume
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
               required:
-                - VolumeId
-                - InstanceId
-                - Device
+              - VolumeId
+              - InstanceId
+              - Device
               properties:
                 VolumeId:
                   type: string
@@ -199,39 +248,49 @@ paths:
                 Device:
                   type: string
                   description: The device name to expose the volume to the instance.
+            examples:
+              attachVolumeRequestExample:
+                summary: Default attachVolume request
+                x-microcks-default: true
+                value: {}
       responses:
         '200':
           description: Successful response with attachment details.
         '400':
           description: Bad request error.
       tags:
-        - '#AttachVolume'
+      - '#AttachVolume'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /#DetachVolume:
     post:
       operationId: detachVolume
       summary: Amazon EBS Detach Volume
       description: Detaches an EBS volume from an instance.
       parameters:
-        - name: Action
-          in: query
-          required: true
-          schema:
-            type: string
-            enum:
-              - DetachVolume
-        - name: Version
-          in: query
-          required: true
-          schema:
-            type: string
-            default: '2016-11-15'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DetachVolume
+        example: DetachVolume
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
               required:
-                - VolumeId
+              - VolumeId
               properties:
                 VolumeId:
                   type: string
@@ -245,39 +304,49 @@ paths:
                 Force:
                   type: boolean
                   description: Forces detachment if the previous detachment attempt did not occur cleanly.
+            examples:
+              detachVolumeRequestExample:
+                summary: Default detachVolume request
+                x-microcks-default: true
+                value: {}
       responses:
         '200':
           description: Successful response with detachment details.
         '400':
           description: Bad request error.
       tags:
-        - '#DetachVolume'
+      - '#DetachVolume'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /#CreateSnapshot:
     post:
       operationId: createSnapshot
       summary: Amazon EBS Create Snapshot
       description: Creates a snapshot of an EBS volume and stores it in Amazon S3.
       parameters:
-        - name: Action
-          in: query
-          required: true
-          schema:
-            type: string
-            enum:
-              - CreateSnapshot
-        - name: Version
-          in: query
-          required: true
-          schema:
-            type: string
-            default: '2016-11-15'
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateSnapshot
+        example: CreateSnapshot
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
               required:
-                - VolumeId
+              - VolumeId
               properties:
                 VolumeId:
                   type: string
@@ -285,56 +354,73 @@ paths:
                 Description:
                   type: string
                   description: A description for the snapshot.
+            examples:
+              createSnapshotRequestExample:
+                summary: Default createSnapshot request
+                x-microcks-default: true
+                value: {}
       responses:
         '200':
           description: Successful response with the snapshot details.
         '400':
           description: Bad request error.
       tags:
-        - '#CreateSnapshot'
+      - '#CreateSnapshot'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /#DescribeSnapshots:
     get:
       operationId: describeSnapshots
       summary: Amazon EBS Describe Snapshots
       description: Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.
       parameters:
-        - name: Action
-          in: query
-          required: true
-          schema:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeSnapshots
+        example: DescribeSnapshots
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
+      - name: SnapshotId
+        in: query
+        schema:
+          type: array
+          items:
             type: string
-            enum:
-              - DescribeSnapshots
-        - name: Version
-          in: query
-          required: true
-          schema:
-            type: string
-            default: '2016-11-15'
-        - name: SnapshotId
-          in: query
-          schema:
-            type: array
-            items:
-              type: string
-          description: The snapshot IDs to describe.
-        - name: MaxResults
-          in: query
-          schema:
-            type: integer
-          description: The maximum number of snapshots to return.
-        - name: NextToken
-          in: query
-          schema:
-            type: string
-          description: The token for the next set of results.
+        description: The snapshot IDs to describe.
+        example:
+        - snap-0abc123def456789
+      - name: MaxResults
+        in: query
+        schema:
+          type: integer
+        description: The maximum number of snapshots to return.
+        example: 1
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: The token for the next set of results.
+        example: example-string
       responses:
         '200':
           description: Successful response with snapshot details.
         '400':
           description: Bad request error.
       tags:
-        - '#DescribeSnapshots'
+      - '#DescribeSnapshots'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     DescribeVolumesResult:
@@ -344,52 +430,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Volume'
+          example:
+          - vol-0abc123def456789
         nextToken:
           type: string
+          example: example-string
     Volume:
       type: object
       properties:
         volumeId:
           type: string
           description: The ID of the volume.
+          example: vol-0abc123def456789
         size:
           type: integer
           description: The size of the volume, in GiBs.
+          example: 1
         volumeType:
           type: string
           description: The volume type.
+          example: vol-0abc123def456789
         state:
           type: string
           enum:
-            - creating
-            - available
-            - in-use
-            - deleting
-            - deleted
-            - error
+          - creating
+          - available
+          - in-use
+          - deleting
+          - deleted
+          - error
           description: The volume state.
+          example: creating
         availabilityZone:
           type: string
           description: The Availability Zone for the volume.
+          example: example-string
         createTime:
           type: string
           format: date-time
           description: The time stamp when volume creation was initiated.
+          example: '2025-03-15T14:30:00Z'
         encrypted:
           type: boolean
           description: Indicates whether the volume is encrypted.
+          example: true
         kmsKeyId:
           type: string
           description: The Amazon Resource Name (ARN) of the KMS key.
+          example: example-id-1234
         iops:
           type: integer
           description: The number of I/O operations per second.
+          example: 1
         throughput:
           type: integer
           description: The throughput that the volume supports, in MiB/s.
+          example: 1
         snapshotId:
           type: string
           description: The snapshot from which the volume was created.
+          example: snap-0abc123def456789
         attachments:
           type: array
           items:
@@ -407,6 +507,10 @@ components:
                 type: string
                 format: date-time
           description: Information about the volume attachments.
+          example:
+          - volumeId: vol-0abc123def456789
+            instanceId: i-0abc123def456789
+            device: example-string
         tags:
           type: array
           items:
@@ -417,6 +521,9 @@ components:
               value:
                 type: string
           description: Any tags assigned to the volume.
+          example:
+          - key: example-string
+            value: example-string
   securitySchemes:
     aws_sigv4:
       type: apiKey
@@ -424,8 +531,8 @@ components:
       in: header
       description: AWS Signature Version 4 authentication.
 tags:
-  - name: '#AttachVolume'
-  - name: '#CreateSnapshot'
-  - name: '#DeleteVolume'
-  - name: '#DescribeSnapshots'
-  - name: '#DetachVolume'
+- name: '#AttachVolume'
+- name: '#CreateSnapshot'
+- name: '#DeleteVolume'
+- name: '#DescribeSnapshots'
+- name: '#DetachVolume'

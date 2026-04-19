@@ -1,0 +1,84 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon EBS
+  description: Unified vocabulary and taxonomy for Amazon EBS APIs covering operational and capability dimensions.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon EBS API
+    namespace: ebs
+    version: '2024'
+    status: active
+  resources:
+  - name: '#DeleteVolume'
+    description: '#DeleteVolume resources'
+  - name: '#CreateSnapshot'
+    description: '#CreateSnapshot resources'
+  - name: '#DetachVolume'
+    description: '#DetachVolume resources'
+  - name: '#AttachVolume'
+    description: '#AttachVolume resources'
+  - name: '#DescribeSnapshots'
+    description: '#DescribeSnapshots resources'
+  actions:
+  - name: create
+    pattern: write
+  - name: attach
+    pattern: write
+  - name: describe
+    pattern: read
+  - name: detach
+    pattern: write
+  - name: delete
+    pattern: write
+  schemas:
+    core:
+    - name: DescribeVolumesResult
+      description: DescribeVolumesResult schema
+    - name: Volume
+      description: Volume schema
+  authentication:
+    schemes:
+    - AWS Signature Version 4
+    description: All API requests use AWS Signature Version 4 for authentication.
+capability:
+  workflows:
+  - name: Block Storage Management
+    file: capabilities/ebs-management.yaml
+    description: Workflow capability for Block Storage Management.
+  personas:
+  - id: cloud-engineer
+    name: Cloud Engineer
+    description: Engineers managing Amazon EBS resources on AWS.
+    workflows:
+    - Block Storage Management
+  domains:
+  - name: Block Storage Management
+    description: Block Storage Management business domain for Amazon EBS.
+crossReference:
+- resource: '#DeleteVolume'
+  workflows:
+  - Block Storage Management
+  personas:
+  - Cloud Engineer
+- resource: '#CreateSnapshot'
+  workflows:
+  - Block Storage Management
+  personas:
+  - Cloud Engineer
+- resource: '#DetachVolume'
+  workflows:
+  - Block Storage Management
+  personas:
+  - Cloud Engineer
+- resource: '#AttachVolume'
+  workflows:
+  - Block Storage Management
+  personas:
+  - Cloud Engineer
+- resource: '#DescribeSnapshots'
+  workflows:
+  - Block Storage Management
+  personas:
+  - Cloud Engineer
