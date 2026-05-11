@@ -128,6 +128,18 @@ common:
   url: vocabulary/amazon-ebs-vocabulary.yaml
 - type: NaftikoCapability
   url: capabilities/ebs-management.yaml
+- type: Integrations
+  url: https://aws.amazon.com/marketplace
 maintainer:
   name: Kin Lane
   email: kin@apievangelist.com
+integrations:
+  - name: Sign in
+  - name: Agent Mode
+  - name: 'Why AWS Marketplace?'
+  - name: Get started in AWS Marketplace
+  - name: Industry
+  - name: Resources
+  - name: Become a Channel Partner
+  - name: Sell in AWS Marketplace
+  - name: Manage Your Account
