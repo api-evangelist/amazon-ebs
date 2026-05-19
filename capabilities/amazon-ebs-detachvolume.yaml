@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: 'Amazon EBS Amazon Elastic Block Store (EBS) API — #DetachVolume'
+  description: 'Amazon EBS Amazon Elastic Block Store (EBS) API — #DetachVolume. 1 operations. Lead operation: Amazon EBS
+    Detach Volume. Self-contained Naftiko capability covering one Amazon Ebs business surface.'
+  tags:
+  - Amazon Ebs
+  - '#DetachVolume'
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_EBS_API_KEY: AMAZON_EBS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-ebs-detachvolume
+    baseUri: https://ec2.amazonaws.com
+    description: 'Amazon EBS Amazon Elastic Block Store (EBS) API — #DetachVolume business capability. Self-contained, no
+      shared references.'
+    resources:
+    - name: '#DetachVolume'
+      path: /#DetachVolume
+      operations:
+      - name: detachvolume
+        method: POST
+        description: Amazon EBS Detach Volume
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_EBS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-ebs-detachvolume-rest
+    port: 8080
+    description: 'REST adapter for Amazon EBS Amazon Elastic Block Store (EBS) API — #DetachVolume. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.'
+    resources:
+    - path: /v1/detachvolume
+      name: detachvolume
+      description: 'REST surface for #DetachVolume.'
+      operations:
+      - method: POST
+        name: detachvolume
+        description: Amazon EBS Detach Volume
+        call: amazon-ebs-detachvolume.detachvolume
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-ebs-detachvolume-mcp
+    port: 9090
+    transport: http
+    description: 'MCP adapter for Amazon EBS Amazon Elastic Block Store (EBS) API — #DetachVolume. One tool per consumed operation,
+      routed inline through this capability''s consumes block.'
+    tools:
+    - name: amazon-ebs-detach-volume
+      description: Amazon EBS Detach Volume
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-ebs-detachvolume.detachvolume
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
