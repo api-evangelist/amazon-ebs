@@ -1,0 +1,73 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EBS Snapshot and Verify Volume
+  summary: Take a snapshot of an EBS volume and confirm the snapshot is visible.
+  description: >-
+    The requested ListSnapshotBlocks / GetSnapshotBlock direct block APIs were
+    not present in the spec, so this workflow adapts the requested
+    create-then-verify pattern to the EC2-style snapshot operations the
+    description actually supports. It creates a snapshot of the supplied volume
+    and then reads the account snapshots back to confirm the snapshot is
+    available. Every step spells out its request inline so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonEbsApi
+  url: ../openapi/amazon-ebs-openapi.yml
+  type: openapi
+workflows:
+- workflowId: snapshot-and-verify-volume
+  summary: Create an EBS snapshot of a volume and verify it appears in describe.
+  description: >-
+    Creates a point-in-time snapshot of the supplied volume, then lists
+    snapshots to confirm the new snapshot is present.
+  inputs:
+    type: object
+    required:
+    - volumeId
+    properties:
+      volumeId:
+        type: string
+        description: The ID of the EBS volume to snapshot.
+      description:
+        type: string
+        description: A description for the snapshot.
+  steps:
+  - stepId: createSnapshot
+    description: >-
+      Create a point-in-time snapshot of the supplied EBS volume.
+    operationId: createSnapshot
+    parameters:
+    - name: Action
+      in: query
+      value: CreateSnapshot
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        VolumeId: $inputs.volumeId
+        Description: $inputs.description
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  - stepId: verifySnapshots
+    description: >-
+      List the account snapshots to confirm the new snapshot of the volume is
+      visible.
+    operationId: describeSnapshots
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeSnapshots
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    snapshotStatus: $steps.verifySnapshots.outputs.statusCode

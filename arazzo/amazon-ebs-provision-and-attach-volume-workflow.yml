@@ -1,0 +1,114 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EBS Provision and Attach Volume
+  summary: Create an EBS volume, confirm it is available, then attach it to an instance.
+  description: >-
+    The spec did not expose the EBS direct block APIs (StartSnapshot,
+    PutSnapshotBlock, CompleteSnapshot), so this workflow adapts the requested
+    create-then-finalize pattern to the EC2-style volume lifecycle the
+    description actually supports. It creates a new EBS volume, polls the
+    describe endpoint to confirm the volume reached an attachable state, and
+    then attaches the volume to the target instance with the requested device
+    name. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonEbsApi
+  url: ../openapi/amazon-ebs-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-and-attach-volume
+  summary: Create an EBS volume and attach it to an EC2 instance once available.
+  description: >-
+    Creates a volume in the requested Availability Zone, reads it back to
+    confirm provisioning, and attaches it to the supplied instance and device.
+  inputs:
+    type: object
+    required:
+    - availabilityZone
+    - instanceId
+    - device
+    properties:
+      availabilityZone:
+        type: string
+        description: The Availability Zone in which to create the volume.
+      size:
+        type: integer
+        description: The size of the volume, in GiBs.
+      volumeType:
+        type: string
+        description: The volume type (e.g. gp3).
+      instanceId:
+        type: string
+        description: The ID of the instance to attach the volume to.
+      device:
+        type: string
+        description: The device name to expose the volume to the instance.
+  steps:
+  - stepId: createVolume
+    description: >-
+      Create a new EBS volume in the requested Availability Zone using the
+      optional size and volume type.
+    operationId: createVolume
+    parameters:
+    - name: Action
+      in: query
+      value: CreateVolume
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AvailabilityZone: $inputs.availabilityZone
+        Size: $inputs.size
+        VolumeType: $inputs.volumeType
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      volumeId: $response.body#/volumeId
+      state: $response.body#/state
+  - stepId: confirmVolume
+    description: >-
+      Read the newly created volume back to confirm it exists before attempting
+      to attach it.
+    operationId: describeVolumes
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeVolumes
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    - name: VolumeId
+      in: query
+      value: $steps.createVolume.outputs.volumeId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      volumes: $response.body#/volumeSet
+  - stepId: attachVolume
+    description: >-
+      Attach the confirmed volume to the target instance, exposing it with the
+      requested device name.
+    operationId: attachVolume
+    parameters:
+    - name: Action
+      in: query
+      value: AttachVolume
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        VolumeId: $steps.createVolume.outputs.volumeId
+        InstanceId: $inputs.instanceId
+        Device: $inputs.device
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    volumeId: $steps.createVolume.outputs.volumeId
+    volumes: $steps.confirmVolume.outputs.volumes

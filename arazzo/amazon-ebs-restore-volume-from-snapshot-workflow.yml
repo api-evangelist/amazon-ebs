@@ -1,0 +1,110 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EBS Restore Volume from Snapshot
+  summary: Locate a snapshot, create a volume from it, and attach the volume.
+  description: >-
+    The GetSnapshotBlock direct block API was not present in the spec, so this
+    workflow adapts the requested restore-from-snapshot pattern to the
+    EC2-style operations the description actually supports. It describes the
+    supplied snapshot to confirm it exists, creates a new EBS volume from that
+    snapshot in the target Availability Zone, and attaches the restored volume
+    to an instance. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonEbsApi
+  url: ../openapi/amazon-ebs-openapi.yml
+  type: openapi
+workflows:
+- workflowId: restore-volume-from-snapshot
+  summary: Create and attach a new EBS volume restored from an existing snapshot.
+  description: >-
+    Confirms the source snapshot exists, provisions a volume from it in the
+    requested Availability Zone, and attaches the restored volume to the
+    supplied instance.
+  inputs:
+    type: object
+    required:
+    - snapshotId
+    - availabilityZone
+    - instanceId
+    - device
+    properties:
+      snapshotId:
+        type: string
+        description: The ID of the snapshot to restore from.
+      availabilityZone:
+        type: string
+        description: The Availability Zone in which to create the volume.
+      instanceId:
+        type: string
+        description: The ID of the instance to attach the restored volume to.
+      device:
+        type: string
+        description: The device name to expose the volume to the instance.
+  steps:
+  - stepId: findSnapshot
+    description: >-
+      Describe the supplied snapshot to confirm it exists before restoring from
+      it.
+    operationId: describeSnapshots
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeSnapshots
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    - name: SnapshotId
+      in: query
+      value: $inputs.snapshotId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  - stepId: createVolumeFromSnapshot
+    description: >-
+      Create a new EBS volume from the confirmed snapshot in the requested
+      Availability Zone.
+    operationId: createVolume
+    parameters:
+    - name: Action
+      in: query
+      value: CreateVolume
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AvailabilityZone: $inputs.availabilityZone
+        SnapshotId: $inputs.snapshotId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      volumeId: $response.body#/volumeId
+      state: $response.body#/state
+  - stepId: attachRestoredVolume
+    description: >-
+      Attach the restored volume to the target instance with the requested
+      device name.
+    operationId: attachVolume
+    parameters:
+    - name: Action
+      in: query
+      value: AttachVolume
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        VolumeId: $steps.createVolumeFromSnapshot.outputs.volumeId
+        InstanceId: $inputs.instanceId
+        Device: $inputs.device
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    restoredVolumeId: $steps.createVolumeFromSnapshot.outputs.volumeId

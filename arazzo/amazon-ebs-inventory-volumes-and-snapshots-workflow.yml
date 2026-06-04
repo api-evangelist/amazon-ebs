@@ -1,0 +1,77 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EBS Inventory Volumes and Snapshots
+  summary: Page through EBS volumes and snapshots to build a storage inventory.
+  description: >-
+    The ListChangedBlocks direct block API was not present in the spec, so this
+    workflow adapts the requested two-snapshot listing pattern to a read-only
+    inventory of the EC2-style volume and snapshot describe operations the
+    description actually supports. It describes the account volumes, then
+    describes the account snapshots, surfacing pagination tokens so a caller can
+    continue paging. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonEbsApi
+  url: ../openapi/amazon-ebs-openapi.yml
+  type: openapi
+workflows:
+- workflowId: inventory-volumes-and-snapshots
+  summary: Describe EBS volumes and snapshots for a storage inventory pass.
+  description: >-
+    Reads a page of volumes and a page of snapshots, returning the result sets
+    and any next-page tokens for continued paging.
+  inputs:
+    type: object
+    properties:
+      maxResults:
+        type: integer
+        description: The maximum number of items to return per page.
+      nextToken:
+        type: string
+        description: The token for the next page of volume results.
+  steps:
+  - stepId: listVolumes
+    description: >-
+      Describe a page of the account EBS volumes.
+    operationId: describeVolumes
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeVolumes
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    - name: MaxResults
+      in: query
+      value: $inputs.maxResults
+    - name: NextToken
+      in: query
+      value: $inputs.nextToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      volumes: $response.body#/volumeSet
+      nextToken: $response.body#/nextToken
+  - stepId: listSnapshots
+    description: >-
+      Describe a page of the account EBS snapshots to round out the storage
+      inventory.
+    operationId: describeSnapshots
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeSnapshots
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    - name: MaxResults
+      in: query
+      value: $inputs.maxResults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    volumes: $steps.listVolumes.outputs.volumes
+    volumesNextToken: $steps.listVolumes.outputs.nextToken

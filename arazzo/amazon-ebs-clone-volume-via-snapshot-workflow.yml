@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EBS Clone Volume via Snapshot
+  summary: Snapshot a source volume, confirm it, then create a clone volume from it.
+  description: >-
+    This workflow adapts the requested snapshot-then-block pattern to the
+    EC2-style operations the spec actually supports, producing a clone of an
+    existing volume. It snapshots the source volume, describes snapshots to
+    confirm the new snapshot is visible, and creates a new volume from that
+    snapshot in the requested Availability Zone. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonEbsApi
+  url: ../openapi/amazon-ebs-openapi.yml
+  type: openapi
+workflows:
+- workflowId: clone-volume-via-snapshot
+  summary: Clone an EBS volume by snapshotting it and creating a new volume.
+  description: >-
+    Creates a snapshot of the source volume, confirms it via describe, and
+    provisions a clone volume from that snapshot.
+  inputs:
+    type: object
+    required:
+    - sourceVolumeId
+    - snapshotId
+    - availabilityZone
+    properties:
+      sourceVolumeId:
+        type: string
+        description: The ID of the volume to clone.
+      snapshotId:
+        type: string
+        description: >-
+          The ID of the snapshot produced from the source volume. The
+          createSnapshot response carries no documented body in this spec, so
+          the resulting snapshot id is supplied as an input for the clone step.
+      availabilityZone:
+        type: string
+        description: The Availability Zone in which to create the clone.
+      description:
+        type: string
+        description: A description for the intermediate snapshot.
+  steps:
+  - stepId: snapshotSource
+    description: >-
+      Create a snapshot of the source volume to use as the clone basis.
+    operationId: createSnapshot
+    parameters:
+    - name: Action
+      in: query
+      value: CreateSnapshot
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        VolumeId: $inputs.sourceVolumeId
+        Description: $inputs.description
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  - stepId: confirmSnapshot
+    description: >-
+      Describe snapshots to confirm the source snapshot is visible before
+      cloning from it.
+    operationId: describeSnapshots
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeSnapshots
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    - name: SnapshotId
+      in: query
+      value: $inputs.snapshotId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      statusCode: $statusCode
+  - stepId: createClone
+    description: >-
+      Create a new EBS volume from the confirmed snapshot in the requested
+      Availability Zone.
+    operationId: createVolume
+    parameters:
+    - name: Action
+      in: query
+      value: CreateVolume
+    - name: Version
+      in: query
+      value: '2016-11-15'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AvailabilityZone: $inputs.availabilityZone
+        SnapshotId: $inputs.snapshotId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      cloneVolumeId: $response.body#/volumeId
+      state: $response.body#/state
+  outputs:
+    cloneVolumeId: $steps.createClone.outputs.cloneVolumeId
