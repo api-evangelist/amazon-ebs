@@ -1,0 +1,1395 @@
+{
+  "info": {
+    "_postman_id": "ef86dc94-d7e9-496d-8b8e-05dcaffba297",
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) API",
+    "description": "Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:03:01.000Z",
+    "updatedAt": "2026-06-05T15:03:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ef86dc94-d7e9-496d-8b8e-05dcaffba297"
+  },
+  "item": [
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Amazon EBS Describe Volumes",
+          "id": "596b5852-c42a-4770-af14-8f046c0dd7ec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeVolumes&Version=2016-11-15&VolumeId=<string>&VolumeId=<string>&MaxResults=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeVolumes"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                },
+                {
+                  "description": "The volume IDs to describe.",
+                  "key": "VolumeId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The volume IDs to describe.",
+                  "key": "VolumeId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of volumes to return.",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The token for the next set of results.",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes the specified EBS volumes or all of your EBS volumes."
+          },
+          "response": [
+            {
+              "id": "af8163ad-98b0-4bc3-9993-dc4490ddcbd4",
+              "name": "Successful response with volume details.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeVolumes&Version=2016-11-15&VolumeId=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeVolumes"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    },
+                    {
+                      "description": "The volume IDs to describe.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of volumes to return.",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token for the next set of results.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <volumeSet>\n    <volumeId>(string)</volumeId>\n    <size>(integer)</size>\n    <volumeType>(string)</volumeType>\n    <state>(string)</state>\n    <availabilityZone>(string)</availabilityZone>\n    <createTime>(string)</createTime>\n    <encrypted>(boolean)</encrypted>\n    <kmsKeyId>(string)</kmsKeyId>\n    <iops>(integer)</iops>\n    <throughput>(integer)</throughput>\n    <snapshotId>(string)</snapshotId>\n    <attachments>\n      <volumeId>(string)</volumeId>\n      <instanceId>(string)</instanceId>\n      <device>(string)</device>\n      <state>(string)</state>\n      <attachTime>(string)</attachTime>\n    </attachments>\n    <attachments>\n      <volumeId>(string)</volumeId>\n      <instanceId>(string)</instanceId>\n      <device>(string)</device>\n      <state>(string)</state>\n      <attachTime>(string)</attachTime>\n    </attachments>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </volumeSet>\n  <volumeSet>\n    <volumeId>(string)</volumeId>\n    <size>(integer)</size>\n    <volumeType>(string)</volumeType>\n    <state>(string)</state>\n    <availabilityZone>(string)</availabilityZone>\n    <createTime>(string)</createTime>\n    <encrypted>(boolean)</encrypted>\n    <kmsKeyId>(string)</kmsKeyId>\n    <iops>(integer)</iops>\n    <throughput>(integer)</throughput>\n    <snapshotId>(string)</snapshotId>\n    <attachments>\n      <volumeId>(string)</volumeId>\n      <instanceId>(string)</instanceId>\n      <device>(string)</device>\n      <state>(string)</state>\n      <attachTime>(string)</attachTime>\n    </attachments>\n    <attachments>\n      <volumeId>(string)</volumeId>\n      <instanceId>(string)</instanceId>\n      <device>(string)</device>\n      <state>(string)</state>\n      <attachTime>(string)</attachTime>\n    </attachments>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </volumeSet>\n  <nextToken>(string)</nextToken>\n</element>",
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-af8163ad-98b0-4bc3-9993-dc4490ddcbd4"
+            }
+          ],
+          "createdAt": "2026-06-05T15:03:01.000Z",
+          "updatedAt": "2026-06-05T15:03:01.000Z",
+          "uid": "35240-596b5852-c42a-4770-af14-8f046c0dd7ec"
+        },
+        {
+          "name": "Amazon EBS Create Volume",
+          "id": "d99c69cb-a1fe-43c9-92a0-dfe0ec4fc552",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The Availability Zone in which to create the volume.",
+                  "key": "AvailabilityZone",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The size of the volume, in GiBs.",
+                  "key": "Size",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The volume type.",
+                  "key": "VolumeType",
+                  "value": "gp3"
+                },
+                {
+                  "description": "The number of I/O operations per second (IOPS).",
+                  "key": "Iops",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The throughput to provision for a gp3 volume.",
+                  "key": "Throughput",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The snapshot from which to create the volume.",
+                  "key": "SnapshotId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Specifies whether the volume should be encrypted.",
+                  "key": "Encrypted",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The identifier of the KMS key for encryption.",
+                  "key": "KmsKeyId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateVolume&Version=2016-11-15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateVolume"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                }
+              ]
+            },
+            "description": "Creates an EBS volume that can be attached to an instance in the same Availability Zone."
+          },
+          "response": [
+            {
+              "id": "2008c875-71b4-434f-aca5-599fa2fea288",
+              "name": "Successful response with the created volume details.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The Availability Zone in which to create the volume.",
+                      "key": "AvailabilityZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the volume, in GiBs.",
+                      "key": "Size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The volume type.",
+                      "key": "VolumeType",
+                      "value": "gp3"
+                    },
+                    {
+                      "description": "The number of I/O operations per second (IOPS).",
+                      "key": "Iops",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The throughput to provision for a gp3 volume.",
+                      "key": "Throughput",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The snapshot from which to create the volume.",
+                      "key": "SnapshotId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies whether the volume should be encrypted.",
+                      "key": "Encrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the KMS key for encryption.",
+                      "key": "KmsKeyId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateVolume&Version=2016-11-15",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <volumeId>(string)</volumeId>\n  <size>(integer)</size>\n  <volumeType>(string)</volumeType>\n  <state>(string)</state>\n  <availabilityZone>(string)</availabilityZone>\n  <createTime>(string)</createTime>\n  <encrypted>(boolean)</encrypted>\n  <kmsKeyId>(string)</kmsKeyId>\n  <iops>(integer)</iops>\n  <throughput>(integer)</throughput>\n  <snapshotId>(string)</snapshotId>\n  <attachments>\n    <volumeId>(string)</volumeId>\n    <instanceId>(string)</instanceId>\n    <device>(string)</device>\n    <state>(string)</state>\n    <attachTime>(string)</attachTime>\n  </attachments>\n  <attachments>\n    <volumeId>(string)</volumeId>\n    <instanceId>(string)</instanceId>\n    <device>(string)</device>\n    <state>(string)</state>\n    <attachTime>(string)</attachTime>\n  </attachments>\n  <tags>\n    <key>(string)</key>\n    <value>(string)</value>\n  </tags>\n  <tags>\n    <key>(string)</key>\n    <value>(string)</value>\n  </tags>\n</element>",
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-2008c875-71b4-434f-aca5-599fa2fea288"
+            },
+            {
+              "id": "2f898090-fe73-4d98-bf63-b57d42162fa1",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The Availability Zone in which to create the volume.",
+                      "key": "AvailabilityZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The size of the volume, in GiBs.",
+                      "key": "Size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The volume type.",
+                      "key": "VolumeType",
+                      "value": "gp3"
+                    },
+                    {
+                      "description": "The number of I/O operations per second (IOPS).",
+                      "key": "Iops",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The throughput to provision for a gp3 volume.",
+                      "key": "Throughput",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The snapshot from which to create the volume.",
+                      "key": "SnapshotId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies whether the volume should be encrypted.",
+                      "key": "Encrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the KMS key for encryption.",
+                      "key": "KmsKeyId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateVolume&Version=2016-11-15",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-2f898090-fe73-4d98-bf63-b57d42162fa1"
+            }
+          ],
+          "createdAt": "2026-06-05T15:03:01.000Z",
+          "updatedAt": "2026-06-05T15:03:01.000Z",
+          "uid": "35240-d99c69cb-a1fe-43c9-92a0-dfe0ec4fc552"
+        }
+      ],
+      "id": "cf7ce79b-b49e-4486-af2d-4db8a1ce37b1",
+      "createdAt": "2026-06-05T15:03:01.000Z",
+      "updatedAt": "2026-06-05T15:03:01.000Z",
+      "uid": "35240-cf7ce79b-b49e-4486-af2d-4db8a1ce37b1"
+    },
+    {
+      "name": "#DeleteVolume",
+      "item": [
+        {
+          "name": "Amazon EBS Delete Volume",
+          "id": "784aa213-9617-49a8-bf4b-530da1a4f083",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The ID of the volume to delete.",
+                  "key": "VolumeId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteVolume&Version=2016-11-15#DeleteVolume",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DeleteVolume"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                }
+              ],
+              "hash": "DeleteVolume"
+            },
+            "description": "Deletes the specified EBS volume. The volume must be in the available state and not attached to any instance."
+          },
+          "response": [
+            {
+              "id": "52dfb199-19c5-4cc0-8767-b109f78fc049",
+              "name": "Successful deletion response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the volume to delete.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteVolume&Version=2016-11-15#DeleteVolume",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "DeleteVolume"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-52dfb199-19c5-4cc0-8767-b109f78fc049"
+            },
+            {
+              "id": "3b8c1446-8c30-42fd-87b0-c0d17f99d46e",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the volume to delete.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteVolume&Version=2016-11-15#DeleteVolume",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "DeleteVolume"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-3b8c1446-8c30-42fd-87b0-c0d17f99d46e"
+            }
+          ],
+          "createdAt": "2026-06-05T15:03:01.000Z",
+          "updatedAt": "2026-06-05T15:03:01.000Z",
+          "uid": "35240-784aa213-9617-49a8-bf4b-530da1a4f083"
+        }
+      ],
+      "id": "b39d3fab-e151-490c-8b2e-d863089617f5",
+      "createdAt": "2026-06-05T15:03:01.000Z",
+      "updatedAt": "2026-06-05T15:03:01.000Z",
+      "uid": "35240-b39d3fab-e151-490c-8b2e-d863089617f5"
+    },
+    {
+      "name": "#AttachVolume",
+      "item": [
+        {
+          "name": "Amazon EBS Attach Volume",
+          "id": "b1f53da3-fe09-4d9e-9921-b2851fef0c64",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The ID of the EBS volume.",
+                  "key": "VolumeId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The ID of the instance.",
+                  "key": "InstanceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The device name to expose the volume to the instance.",
+                  "key": "Device",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=AttachVolume&Version=2016-11-15#AttachVolume",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "AttachVolume"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                }
+              ],
+              "hash": "AttachVolume"
+            },
+            "description": "Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name."
+          },
+          "response": [
+            {
+              "id": "c8413b9f-8b8d-40cc-a7ac-fdd2d69b2ce6",
+              "name": "Successful response with attachment details.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the EBS volume.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the instance.",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The device name to expose the volume to the instance.",
+                      "key": "Device",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=AttachVolume&Version=2016-11-15#AttachVolume",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "AttachVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "AttachVolume"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-c8413b9f-8b8d-40cc-a7ac-fdd2d69b2ce6"
+            },
+            {
+              "id": "f3349874-e8a4-402b-9c23-e1097f7b8737",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the EBS volume.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the instance.",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The device name to expose the volume to the instance.",
+                      "key": "Device",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=AttachVolume&Version=2016-11-15#AttachVolume",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "AttachVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "AttachVolume"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-f3349874-e8a4-402b-9c23-e1097f7b8737"
+            }
+          ],
+          "createdAt": "2026-06-05T15:03:01.000Z",
+          "updatedAt": "2026-06-05T15:03:01.000Z",
+          "uid": "35240-b1f53da3-fe09-4d9e-9921-b2851fef0c64"
+        }
+      ],
+      "id": "2af3cf7f-c89a-4c1f-b4c7-7e0b99b28194",
+      "createdAt": "2026-06-05T15:03:01.000Z",
+      "updatedAt": "2026-06-05T15:03:01.000Z",
+      "uid": "35240-2af3cf7f-c89a-4c1f-b4c7-7e0b99b28194"
+    },
+    {
+      "name": "#DetachVolume",
+      "item": [
+        {
+          "name": "Amazon EBS Detach Volume",
+          "id": "eecb47c8-2666-4373-b630-850ea2bb7d93",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The ID of the volume.",
+                  "key": "VolumeId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the instance.",
+                  "key": "InstanceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The device name.",
+                  "key": "Device",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Forces detachment if the previous detachment attempt did not occur cleanly.",
+                  "key": "Force",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DetachVolume&Version=2016-11-15#DetachVolume",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DetachVolume"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                }
+              ],
+              "hash": "DetachVolume"
+            },
+            "description": "Detaches an EBS volume from an instance."
+          },
+          "response": [
+            {
+              "id": "28581a2f-a4f5-4df9-bc59-6c8e88c6c345",
+              "name": "Successful response with detachment details.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the volume.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the instance.",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device name.",
+                      "key": "Device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forces detachment if the previous detachment attempt did not occur cleanly.",
+                      "key": "Force",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachVolume&Version=2016-11-15#DetachVolume",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "DetachVolume"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-28581a2f-a4f5-4df9-bc59-6c8e88c6c345"
+            },
+            {
+              "id": "d4605e9a-f4a7-47d6-8a99-c264a77e6c49",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the volume.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the instance.",
+                      "key": "InstanceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The device name.",
+                      "key": "Device",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Forces detachment if the previous detachment attempt did not occur cleanly.",
+                      "key": "Force",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachVolume&Version=2016-11-15#DetachVolume",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachVolume"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "DetachVolume"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-d4605e9a-f4a7-47d6-8a99-c264a77e6c49"
+            }
+          ],
+          "createdAt": "2026-06-05T15:03:01.000Z",
+          "updatedAt": "2026-06-05T15:03:01.000Z",
+          "uid": "35240-eecb47c8-2666-4373-b630-850ea2bb7d93"
+        }
+      ],
+      "id": "1e35ac81-ce43-4162-94b0-03d798f6d9ac",
+      "createdAt": "2026-06-05T15:03:01.000Z",
+      "updatedAt": "2026-06-05T15:03:01.000Z",
+      "uid": "35240-1e35ac81-ce43-4162-94b0-03d798f6d9ac"
+    },
+    {
+      "name": "#CreateSnapshot",
+      "item": [
+        {
+          "name": "Amazon EBS Create Snapshot",
+          "id": "807f77a3-fa99-4cdf-bf73-8f2835c0c0f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The ID of the EBS volume.",
+                  "key": "VolumeId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A description for the snapshot.",
+                  "key": "Description",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateSnapshot&Version=2016-11-15#CreateSnapshot",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateSnapshot"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                }
+              ],
+              "hash": "CreateSnapshot"
+            },
+            "description": "Creates a snapshot of an EBS volume and stores it in Amazon S3."
+          },
+          "response": [
+            {
+              "id": "7def0ca5-54be-4eb5-ad6d-fae33b668670",
+              "name": "Successful response with the snapshot details.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the EBS volume.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description for the snapshot.",
+                      "key": "Description",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateSnapshot&Version=2016-11-15#CreateSnapshot",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateSnapshot"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "CreateSnapshot"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-7def0ca5-54be-4eb5-ad6d-fae33b668670"
+            },
+            {
+              "id": "bd37a956-17f0-4403-a6a2-d7bc676b00f2",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ID of the EBS volume.",
+                      "key": "VolumeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description for the snapshot.",
+                      "key": "Description",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateSnapshot&Version=2016-11-15#CreateSnapshot",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateSnapshot"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ],
+                  "hash": "CreateSnapshot"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-bd37a956-17f0-4403-a6a2-d7bc676b00f2"
+            }
+          ],
+          "createdAt": "2026-06-05T15:03:01.000Z",
+          "updatedAt": "2026-06-05T15:03:01.000Z",
+          "uid": "35240-807f77a3-fa99-4cdf-bf73-8f2835c0c0f0"
+        }
+      ],
+      "id": "69dd3380-be31-4612-886f-1906ce6ea1a4",
+      "createdAt": "2026-06-05T15:03:01.000Z",
+      "updatedAt": "2026-06-05T15:03:01.000Z",
+      "uid": "35240-69dd3380-be31-4612-886f-1906ce6ea1a4"
+    },
+    {
+      "name": "#DescribeSnapshots",
+      "item": [
+        {
+          "name": "Amazon EBS Describe Snapshots",
+          "id": "d7a44aa2-c338-42f9-9d00-58508215dfd2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeSnapshots&Version=2016-11-15&SnapshotId=<string>&SnapshotId=<string>&MaxResults=<integer>&NextToken=<string>#DescribeSnapshots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeSnapshots"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                },
+                {
+                  "description": "The snapshot IDs to describe.",
+                  "key": "SnapshotId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The snapshot IDs to describe.",
+                  "key": "SnapshotId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of snapshots to return.",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The token for the next set of results.",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ],
+              "hash": "DescribeSnapshots"
+            },
+            "description": "Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you."
+          },
+          "response": [
+            {
+              "id": "8dee3076-d6db-4487-b565-eb99d4580c4f",
+              "name": "Successful response with snapshot details.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeSnapshots&Version=2016-11-15&SnapshotId=<string>&MaxResults=<integer>&NextToken=<string>#DescribeSnapshots",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeSnapshots"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    },
+                    {
+                      "description": "The snapshot IDs to describe.",
+                      "key": "SnapshotId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of snapshots to return.",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token for the next set of results.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "DescribeSnapshots"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-8dee3076-d6db-4487-b565-eb99d4580c4f"
+            },
+            {
+              "id": "5a215b63-9c58-4a0f-85b1-dccd69431525",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeSnapshots&Version=2016-11-15&SnapshotId=<string>&MaxResults=<integer>&NextToken=<string>#DescribeSnapshots",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeSnapshots"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    },
+                    {
+                      "description": "The snapshot IDs to describe.",
+                      "key": "SnapshotId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of snapshots to return.",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The token for the next set of results.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "DescribeSnapshots"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:03:02.000Z",
+              "updatedAt": "2026-06-05T15:03:02.000Z",
+              "uid": "35240-5a215b63-9c58-4a0f-85b1-dccd69431525"
+            }
+          ],
+          "createdAt": "2026-06-05T15:03:01.000Z",
+          "updatedAt": "2026-06-05T15:03:01.000Z",
+          "uid": "35240-d7a44aa2-c338-42f9-9d00-58508215dfd2"
+        }
+      ],
+      "id": "b0004371-a408-4fda-be6f-8b59d3496f86",
+      "createdAt": "2026-06-05T15:03:01.000Z",
+      "updatedAt": "2026-06-05T15:03:01.000Z",
+      "uid": "35240-b0004371-a408-4fda-be6f-8b59d3496f86"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.amazonaws.com"
+    }
+  ]
+}

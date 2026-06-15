@@ -1,0 +1,352 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) API",
+    "version": "2016-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Default",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Describe Volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.amazonaws.com/",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DescribeVolumes",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              },
+              {
+                "name": "VolumeId",
+                "value": "vol-0abc123def456789",
+                "type": "query",
+                "description": "The volume IDs to describe."
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "The maximum number of volumes to return."
+              },
+              {
+                "name": "NextToken",
+                "value": "example-string",
+                "type": "query",
+                "description": "The token for the next set of results."
+              }
+            ]
+          },
+          "docs": "Describes the specified EBS volumes or all of your EBS volumes."
+        },
+        {
+          "info": {
+            "name": "Amazon EBS Create Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/",
+            "params": [
+              {
+                "name": "Action",
+                "value": "CreateVolume",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AvailabilityZone",
+                  "value": ""
+                },
+                {
+                  "name": "Size",
+                  "value": ""
+                },
+                {
+                  "name": "VolumeType",
+                  "value": ""
+                },
+                {
+                  "name": "Iops",
+                  "value": ""
+                },
+                {
+                  "name": "Throughput",
+                  "value": ""
+                },
+                {
+                  "name": "SnapshotId",
+                  "value": ""
+                },
+                {
+                  "name": "Encrypted",
+                  "value": ""
+                },
+                {
+                  "name": "KmsKeyId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates an EBS volume that can be attached to an instance in the same Availability Zone."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#DeleteVolume",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Delete Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/#DeleteVolume",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DeleteVolume",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "VolumeId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Deletes the specified EBS volume. The volume must be in the available state and not attached to any instance."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#AttachVolume",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Attach Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/#AttachVolume",
+            "params": [
+              {
+                "name": "Action",
+                "value": "AttachVolume",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "VolumeId",
+                  "value": ""
+                },
+                {
+                  "name": "InstanceId",
+                  "value": ""
+                },
+                {
+                  "name": "Device",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#DetachVolume",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Detach Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/#DetachVolume",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DetachVolume",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "VolumeId",
+                  "value": ""
+                },
+                {
+                  "name": "InstanceId",
+                  "value": ""
+                },
+                {
+                  "name": "Device",
+                  "value": ""
+                },
+                {
+                  "name": "Force",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Detaches an EBS volume from an instance."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#CreateSnapshot",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Create Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/#CreateSnapshot",
+            "params": [
+              {
+                "name": "Action",
+                "value": "CreateSnapshot",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "VolumeId",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates a snapshot of an EBS volume and stores it in Amazon S3."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#DescribeSnapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Describe Snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.amazonaws.com/#DescribeSnapshots",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DescribeSnapshots",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              },
+              {
+                "name": "SnapshotId",
+                "value": "snap-0abc123def456789",
+                "type": "query",
+                "description": "The snapshot IDs to describe."
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "The maximum number of snapshots to return."
+              },
+              {
+                "name": "NextToken",
+                "value": "example-string",
+                "type": "query",
+                "description": "The token for the next set of results."
+              }
+            ]
+          },
+          "docs": "Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
