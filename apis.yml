@@ -50,6 +50,14 @@ apis:
       - type: Examples
         url: examples/amazon-ebs-volume-example.json
 common:
+  - type: TrustCenter
+    url: security/amazon-ebs-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-ebs-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-ebs-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-ebs-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-ebs/overview
   - type: Arazzo
