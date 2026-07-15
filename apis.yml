@@ -50,6 +50,8 @@ apis:
       - type: Examples
         url: examples/amazon-ebs-volume-example.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-ebs-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-ebs-trust-center.yml
   - type: VulnerabilityDisclosure
