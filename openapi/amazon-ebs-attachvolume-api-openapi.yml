@@ -1,0 +1,80 @@
+openapi: 3.1.0
+info:
+  title: 'Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #AttachVolume API'
+  description: Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.
+  version: '2016-11-15'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://aws.amazon.com/ebs/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://ec2.amazonaws.com
+  description: Amazon EC2/EBS API endpoint
+tags:
+- name: '#AttachVolume'
+paths:
+  /#AttachVolume:
+    post:
+      operationId: attachVolume
+      summary: Amazon EBS Attach Volume
+      description: Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - AttachVolume
+        example: AttachVolume
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - VolumeId
+              - InstanceId
+              - Device
+              properties:
+                VolumeId:
+                  type: string
+                  description: The ID of the EBS volume.
+                InstanceId:
+                  type: string
+                  description: The ID of the instance.
+                Device:
+                  type: string
+                  description: The device name to expose the volume to the instance.
+            examples:
+              attachVolumeRequestExample:
+                summary: Default attachVolume request
+                x-microcks-default: true
+                value: {}
+      responses:
+        '200':
+          description: Successful response with attachment details.
+        '400':
+          description: Bad request error.
+      tags:
+      - '#AttachVolume'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    aws_sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication.

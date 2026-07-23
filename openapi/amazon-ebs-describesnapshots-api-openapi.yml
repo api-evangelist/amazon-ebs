@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: 'Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #DescribeSnapshots API'
+  description: Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.
+  version: '2016-11-15'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://aws.amazon.com/ebs/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://ec2.amazonaws.com
+  description: Amazon EC2/EBS API endpoint
+tags:
+- name: '#DescribeSnapshots'
+paths:
+  /#DescribeSnapshots:
+    get:
+      operationId: describeSnapshots
+      summary: Amazon EBS Describe Snapshots
+      description: Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeSnapshots
+        example: DescribeSnapshots
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
+      - name: SnapshotId
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: The snapshot IDs to describe.
+        example:
+        - snap-0abc123def456789
+      - name: MaxResults
+        in: query
+        schema:
+          type: integer
+        description: The maximum number of snapshots to return.
+        example: 1
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: The token for the next set of results.
+        example: example-string
+      responses:
+        '200':
+          description: Successful response with snapshot details.
+        '400':
+          description: Bad request error.
+      tags:
+      - '#DescribeSnapshots'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    aws_sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication.

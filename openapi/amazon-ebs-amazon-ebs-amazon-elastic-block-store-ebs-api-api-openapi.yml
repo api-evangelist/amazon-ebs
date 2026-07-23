@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Amazon EBS Amazon Elastic Block Store (EBS) API
+  title: Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API API
   description: Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.
   version: '2016-11-15'
   contact:
@@ -13,6 +13,8 @@ info:
 servers:
 - url: https://ec2.amazonaws.com
   description: Amazon EC2/EBS API endpoint
+tags:
+- name: Amazon EBS Amazon Elastic Block Store (EBS) API
 paths:
   /:
     get:
@@ -74,6 +76,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Amazon EBS Amazon Elastic Block Store (EBS) API
     post:
       operationId: createVolume
       summary: Amazon EBS Create Volume
@@ -161,266 +165,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-  /#DeleteVolume:
-    post:
-      operationId: deleteVolume
-      summary: Amazon EBS Delete Volume
-      description: Deletes the specified EBS volume. The volume must be in the available state and not attached to any instance.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - DeleteVolume
-        example: DeleteVolume
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2016-11-15'
-        example: 5.0.0
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-              - VolumeId
-              properties:
-                VolumeId:
-                  type: string
-                  description: The ID of the volume to delete.
-            examples:
-              deleteVolumeRequestExample:
-                summary: Default deleteVolume request
-                x-microcks-default: true
-                value: {}
-      responses:
-        '200':
-          description: Successful deletion response.
-        '400':
-          description: Bad request error.
       tags:
-      - '#DeleteVolume'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /#AttachVolume:
-    post:
-      operationId: attachVolume
-      summary: Amazon EBS Attach Volume
-      description: Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - AttachVolume
-        example: AttachVolume
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2016-11-15'
-        example: 5.0.0
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-              - VolumeId
-              - InstanceId
-              - Device
-              properties:
-                VolumeId:
-                  type: string
-                  description: The ID of the EBS volume.
-                InstanceId:
-                  type: string
-                  description: The ID of the instance.
-                Device:
-                  type: string
-                  description: The device name to expose the volume to the instance.
-            examples:
-              attachVolumeRequestExample:
-                summary: Default attachVolume request
-                x-microcks-default: true
-                value: {}
-      responses:
-        '200':
-          description: Successful response with attachment details.
-        '400':
-          description: Bad request error.
-      tags:
-      - '#AttachVolume'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /#DetachVolume:
-    post:
-      operationId: detachVolume
-      summary: Amazon EBS Detach Volume
-      description: Detaches an EBS volume from an instance.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - DetachVolume
-        example: DetachVolume
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2016-11-15'
-        example: 5.0.0
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-              - VolumeId
-              properties:
-                VolumeId:
-                  type: string
-                  description: The ID of the volume.
-                InstanceId:
-                  type: string
-                  description: The ID of the instance.
-                Device:
-                  type: string
-                  description: The device name.
-                Force:
-                  type: boolean
-                  description: Forces detachment if the previous detachment attempt did not occur cleanly.
-            examples:
-              detachVolumeRequestExample:
-                summary: Default detachVolume request
-                x-microcks-default: true
-                value: {}
-      responses:
-        '200':
-          description: Successful response with detachment details.
-        '400':
-          description: Bad request error.
-      tags:
-      - '#DetachVolume'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /#CreateSnapshot:
-    post:
-      operationId: createSnapshot
-      summary: Amazon EBS Create Snapshot
-      description: Creates a snapshot of an EBS volume and stores it in Amazon S3.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - CreateSnapshot
-        example: CreateSnapshot
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2016-11-15'
-        example: 5.0.0
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-              - VolumeId
-              properties:
-                VolumeId:
-                  type: string
-                  description: The ID of the EBS volume.
-                Description:
-                  type: string
-                  description: A description for the snapshot.
-            examples:
-              createSnapshotRequestExample:
-                summary: Default createSnapshot request
-                x-microcks-default: true
-                value: {}
-      responses:
-        '200':
-          description: Successful response with the snapshot details.
-        '400':
-          description: Bad request error.
-      tags:
-      - '#CreateSnapshot'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /#DescribeSnapshots:
-    get:
-      operationId: describeSnapshots
-      summary: Amazon EBS Describe Snapshots
-      description: Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - DescribeSnapshots
-        example: DescribeSnapshots
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2016-11-15'
-        example: 5.0.0
-      - name: SnapshotId
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-        description: The snapshot IDs to describe.
-        example:
-        - snap-0abc123def456789
-      - name: MaxResults
-        in: query
-        schema:
-          type: integer
-        description: The maximum number of snapshots to return.
-        example: 1
-      - name: NextToken
-        in: query
-        schema:
-          type: string
-        description: The token for the next set of results.
-        example: example-string
-      responses:
-        '200':
-          description: Successful response with snapshot details.
-        '400':
-          description: Bad request error.
-      tags:
-      - '#DescribeSnapshots'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
+      - Amazon EBS Amazon Elastic Block Store (EBS) API
 components:
   schemas:
     DescribeVolumesResult:
@@ -530,9 +276,3 @@ components:
       name: Authorization
       in: header
       description: AWS Signature Version 4 authentication.
-tags:
-- name: '#AttachVolume'
-- name: '#CreateSnapshot'
-- name: '#DeleteVolume'
-- name: '#DescribeSnapshots'
-- name: '#DetachVolume'

@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: 'Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #CreateSnapshot API'
+  description: Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.
+  version: '2016-11-15'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://aws.amazon.com/ebs/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://ec2.amazonaws.com
+  description: Amazon EC2/EBS API endpoint
+tags:
+- name: '#CreateSnapshot'
+paths:
+  /#CreateSnapshot:
+    post:
+      operationId: createSnapshot
+      summary: Amazon EBS Create Snapshot
+      description: Creates a snapshot of an EBS volume and stores it in Amazon S3.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateSnapshot
+        example: CreateSnapshot
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2016-11-15'
+        example: 5.0.0
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - VolumeId
+              properties:
+                VolumeId:
+                  type: string
+                  description: The ID of the EBS volume.
+                Description:
+                  type: string
+                  description: A description for the snapshot.
+            examples:
+              createSnapshotRequestExample:
+                summary: Default createSnapshot request
+                x-microcks-default: true
+                value: {}
+      responses:
+        '200':
+          description: Successful response with the snapshot details.
+        '400':
+          description: Bad request error.
+      tags:
+      - '#CreateSnapshot'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    aws_sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication.
