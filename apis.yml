@@ -3,6 +3,19 @@ description: >-
   Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon EC2 instances. EBS
   volumes are highly available and reliable storage volumes that can be attached to any running instance in the same
   Availability Zone, offering consistent and low-latency performance for workloads that require persistent storage.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/ebs/
 created: '2024-01-15'
@@ -17,38 +30,194 @@ tags:
   - Storage
   - Volumes
 apis:
-  - name: Amazon EBS API
-    description: API for managing Amazon EBS volumes, snapshots, and related resources through the EC2 API.
-    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-    url: https://aws.amazon.com/ebs/
-    baseURL: https://ec2.amazonaws.com
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/ebs/latest/userguide/
-      - type: OpenAPI
-        url: openapi/amazon-ebs-openapi.yml
-      - type: JSONSchema
-        url: json-schema/amazon-ebs-volume-schema.json
-      - type: JSONLD
-        url: json-ld/amazon-ebs-context.jsonld
-      - type: Pricing
-        url: https://aws.amazon.com/ebs/pricing/
-      - type: GettingStarted
-        url: https://aws.amazon.com/ebs/getting-started/
-      - type: FAQ
-        url: https://aws.amazon.com/ebs/faqs/
-      - type: Documentation
-        url: https://docs.aws.amazon.com/ebs/latest/userguide/
-      - type: APIReference
-        url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
-      - type: Documentation
-        url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
-      - type: Security
-        url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
-      - type: JSONStructure
-        url: json-structure/amazon-ebs-volume-structure.json
-      - type: Examples
-        url: examples/amazon-ebs-volume-example.json
+- aid: amazon-ebs:amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api
+  name: Amazon EBS Amazon EBS Amazon Elastic Block Store (EBS) API API
+  description: >-
+    The Amazon EBS Amazon Elastic Block Store (EBS) API API from Amazon EBS — 1 operation(s) for amazon
+    ebs amazon elastic block store (ebs) api.
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - Amazon EBS Amazon Elastic Block Store (EBS) API
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-volume-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ebs-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/ebs/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/ebs/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/ebs/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+  - type: JSONStructure
+    url: json-structure/amazon-ebs-volume-structure.json
+  - type: Examples
+    url: examples/amazon-ebs-volume-example.json
+- aid: amazon-ebs:amazon-ebs-attachvolume-api
+  name: 'Amazon EBS #AttachVolume API'
+  description: 'The #AttachVolume API from Amazon EBS — 1 operation(s) for #attachvolume.'
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - '#AttachVolume'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-attachvolume-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-volume-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ebs-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/ebs/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/ebs/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/ebs/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+  - type: JSONStructure
+    url: json-structure/amazon-ebs-volume-structure.json
+  - type: Examples
+    url: examples/amazon-ebs-volume-example.json
+- aid: amazon-ebs:amazon-ebs-createsnapshot-api
+  name: 'Amazon EBS #CreateSnapshot API'
+  description: 'The #CreateSnapshot API from Amazon EBS — 1 operation(s) for #createsnapshot.'
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - '#CreateSnapshot'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-createsnapshot-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-volume-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ebs-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/ebs/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/ebs/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/ebs/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+  - type: JSONStructure
+    url: json-structure/amazon-ebs-volume-structure.json
+  - type: Examples
+    url: examples/amazon-ebs-volume-example.json
+- aid: amazon-ebs:amazon-ebs-deletevolume-api
+  name: 'Amazon EBS #DeleteVolume API'
+  description: 'The #DeleteVolume API from Amazon EBS — 1 operation(s) for #deletevolume.'
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - '#DeleteVolume'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-deletevolume-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-volume-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ebs-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/ebs/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/ebs/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/ebs/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+  - type: JSONStructure
+    url: json-structure/amazon-ebs-volume-structure.json
+  - type: Examples
+    url: examples/amazon-ebs-volume-example.json
+- aid: amazon-ebs:amazon-ebs-describesnapshots-api
+  name: 'Amazon EBS #DescribeSnapshots API'
+  description: 'The #DescribeSnapshots API from Amazon EBS — 1 operation(s) for #describesnapshots.'
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - '#DescribeSnapshots'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-describesnapshots-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-volume-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ebs-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/ebs/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/ebs/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/ebs/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+  - type: JSONStructure
+    url: json-structure/amazon-ebs-volume-structure.json
+  - type: Examples
+    url: examples/amazon-ebs-volume-example.json
+- aid: amazon-ebs:amazon-ebs-detachvolume-api
+  name: 'Amazon EBS #DetachVolume API'
+  description: 'The #DetachVolume API from Amazon EBS — 1 operation(s) for #detachvolume.'
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - '#DetachVolume'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-detachvolume-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-volume-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ebs-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/ebs/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/ebs/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/ebs/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+  - type: JSONStructure
+    url: json-structure/amazon-ebs-volume-structure.json
+  - type: Examples
+    url: examples/amazon-ebs-volume-example.json
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-ebs-agentic-access.yml
