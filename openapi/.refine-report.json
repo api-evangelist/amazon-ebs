@@ -1,0 +1,24 @@
+{
+  "provider": "amazon-ebs",
+  "sources": [
+    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml",
+    "amazon-ebs-attachvolume-api-openapi.yml",
+    "amazon-ebs-createsnapshot-api-openapi.yml",
+    "amazon-ebs-deletevolume-api-openapi.yml",
+    "amazon-ebs-describesnapshots-api-openapi.yml",
+    "amazon-ebs-detachvolume-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml",
+    "amazon-ebs-attachvolume-api-openapi.yml",
+    "amazon-ebs-createsnapshot-api-openapi.yml",
+    "amazon-ebs-deletevolume-api-openapi.yml",
+    "amazon-ebs-describesnapshots-api-openapi.yml",
+    "amazon-ebs-detachvolume-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
