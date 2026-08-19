@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #DescribeSnapshots API",
+    "version": "2016-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#DescribeSnapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Describe Snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.amazonaws.com/#DescribeSnapshots",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DescribeSnapshots",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              },
+              {
+                "name": "SnapshotId",
+                "value": "snap-0abc123def456789",
+                "type": "query",
+                "description": "The snapshot IDs to describe."
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "The maximum number of snapshots to return."
+              },
+              {
+                "name": "NextToken",
+                "value": "example-string",
+                "type": "query",
+                "description": "The token for the next set of results."
+              }
+            ]
+          },
+          "docs": "Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

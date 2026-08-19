@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "2427fcb8-b488-46f5-9ce4-65f98592b959",
+      "name": "#DescribeSnapshots",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "455dd670-bb0f-4596-9185-0fc78c1036ef",
+          "name": "Amazon EBS Describe Snapshots",
+          "request": {
+            "name": "Amazon EBS Describe Snapshots",
+            "description": {
+              "content": "Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "hash": "DescribeSnapshots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2016-11-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "SnapshotId",
+                  "value": "<string>",
+                  "description": "The snapshot IDs to describe."
+                },
+                {
+                  "disabled": false,
+                  "key": "SnapshotId",
+                  "value": "<string>",
+                  "description": "The snapshot IDs to describe."
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxResults",
+                  "value": "<integer>",
+                  "description": "The maximum number of snapshots to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "The token for the next set of results."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1666d469-591c-4e35-b30e-060060d05a34",
+              "name": "Successful response with snapshot details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "DescribeSnapshots",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "DescribeSnapshots"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "5.0.0"
+                    },
+                    {
+                      "key": "SnapshotId",
+                      "value": "snap-0abc123def456789"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example-string"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8d5cf32-7507-49bc-ae0d-e3771d24ce6a",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "DescribeSnapshots",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "DescribeSnapshots"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "5.0.0"
+                    },
+                    {
+                      "key": "SnapshotId",
+                      "value": "snap-0abc123def456789"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example-string"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ec2.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5e4ca172-b210-4c78-a2b4-915a442c6998",
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #DescribeSnapshots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API API",
+    "version": "2016-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Amazon EBS Amazon Elastic Block Store (EBS) API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Describe Volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.amazonaws.com/",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DescribeVolumes",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              },
+              {
+                "name": "VolumeId",
+                "value": "vol-0abc123def456789",
+                "type": "query",
+                "description": "The volume IDs to describe."
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "The maximum number of volumes to return."
+              },
+              {
+                "name": "NextToken",
+                "value": "example-string",
+                "type": "query",
+                "description": "The token for the next set of results."
+              }
+            ]
+          },
+          "docs": "Describes the specified EBS volumes or all of your EBS volumes."
+        },
+        {
+          "info": {
+            "name": "Amazon EBS Create Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/",
+            "params": [
+              {
+                "name": "Action",
+                "value": "CreateVolume",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AvailabilityZone",
+                  "value": ""
+                },
+                {
+                  "name": "Size",
+                  "value": ""
+                },
+                {
+                  "name": "VolumeType",
+                  "value": ""
+                },
+                {
+                  "name": "Iops",
+                  "value": ""
+                },
+                {
+                  "name": "Throughput",
+                  "value": ""
+                },
+                {
+                  "name": "SnapshotId",
+                  "value": ""
+                },
+                {
+                  "name": "Encrypted",
+                  "value": ""
+                },
+                {
+                  "name": "KmsKeyId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates an EBS volume that can be attached to an instance in the same Availability Zone."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

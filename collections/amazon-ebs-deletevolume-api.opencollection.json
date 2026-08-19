@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #DeleteVolume API",
+    "version": "2016-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#DeleteVolume",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Delete Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/#DeleteVolume",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DeleteVolume",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "VolumeId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Deletes the specified EBS volume. The volume must be in the available state and not attached to any instance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #CreateSnapshot API",
+    "version": "2016-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#CreateSnapshot",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Create Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/#CreateSnapshot",
+            "params": [
+              {
+                "name": "Action",
+                "value": "CreateSnapshot",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "VolumeId",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates a snapshot of an EBS volume and stores it in Amazon S3."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #AttachVolume API",
+    "version": "2016-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#AttachVolume",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EBS Attach Volume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.amazonaws.com/#AttachVolume",
+            "params": [
+              {
+                "name": "Action",
+                "value": "AttachVolume",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "VolumeId",
+                  "value": ""
+                },
+                {
+                  "name": "InstanceId",
+                  "value": ""
+                },
+                {
+                  "name": "Device",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
