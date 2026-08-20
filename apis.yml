@@ -37,7 +37,8 @@ apis:
     The Amazon EBS Amazon Elastic Block Store (EBS) API API from Amazon EBS — 1 operation(s) for amazon
     ebs amazon elastic block store (ebs) api.
   baseURL: https://ec2.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - Amazon EBS Amazon Elastic Block Store (EBS) API
   properties:
   - type: OpenAPI
@@ -100,6 +101,8 @@ apis:
   description: 'The #CreateSnapshot API from Amazon EBS — 1 operation(s) for #createsnapshot.'
   baseURL: https://ec2.amazonaws.com
   tags:
+  - Createsnapshot
+  tags_raw:
   - '#CreateSnapshot'
   properties:
   - type: OpenAPI
