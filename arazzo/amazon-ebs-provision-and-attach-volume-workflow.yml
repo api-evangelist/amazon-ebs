@@ -13,8 +13,11 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: amazonEbsApi
-  url: ../openapi/amazon-ebs-openapi.yml
+- name: amazonEbsAmazonElasticBlockStoreEbsApiApi
+  url: ../openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml
+  type: openapi
+- name: attachvolumeApi
+  url: ../openapi/amazon-ebs-attachvolume-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-and-attach-volume

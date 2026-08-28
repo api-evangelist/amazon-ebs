@@ -12,8 +12,11 @@ info:
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: amazonEbsApi
-  url: ../openapi/amazon-ebs-openapi.yml
+- name: createsnapshotApi
+  url: ../openapi/amazon-ebs-createsnapshot-api-openapi.yml
+  type: openapi
+- name: describesnapshotsApi
+  url: ../openapi/amazon-ebs-describesnapshots-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: snapshot-and-verify-volume

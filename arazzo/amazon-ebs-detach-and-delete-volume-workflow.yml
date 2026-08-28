@@ -11,8 +11,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: amazonEbsApi
-  url: ../openapi/amazon-ebs-openapi.yml
+- name: amazonEbsAmazonElasticBlockStoreEbsApiApi
+  url: ../openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml
+  type: openapi
+- name: deletevolumeApi
+  url: ../openapi/amazon-ebs-deletevolume-api-openapi.yml
+  type: openapi
+- name: detachvolumeApi
+  url: ../openapi/amazon-ebs-detachvolume-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: detach-and-delete-volume
