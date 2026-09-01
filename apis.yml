@@ -113,7 +113,7 @@ apis:
   description: 'The #CreateSnapshot API from Amazon EBS — 1 operation(s) for #createsnapshot.'
   baseURL: https://ec2.amazonaws.com
   tags:
-  - '#CreateSnapshot'
+  - Createsnapshot
   tags_raw:
   - '#CreateSnapshot'
   properties:
