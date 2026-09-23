@@ -1,26 +1,33 @@
 {
   "provider": "amazon-ebs",
   "sources": [
-    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml",
-    "amazon-ebs-attachvolume-api-openapi.yml",
-    "amazon-ebs-createsnapshot-api-openapi.yml",
-    "amazon-ebs-deletevolume-api-openapi.yml",
-    "amazon-ebs-describesnapshots-api-openapi.yml",
-    "amazon-ebs-detachvolume-api-openapi.yml"
+    "_original/amazon-ebs-openapi.yml"
   ],
   "outputs": [
-    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml",
     "amazon-ebs-attachvolume-api-openapi.yml",
     "amazon-ebs-createsnapshot-api-openapi.yml",
     "amazon-ebs-deletevolume-api-openapi.yml",
     "amazon-ebs-describesnapshots-api-openapi.yml",
-    "amazon-ebs-detachvolume-api-openapi.yml"
+    "amazon-ebs-detachvolume-api-openapi.yml",
+    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-ebs-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "amazon-ebs-openapi.yml: tagged paths GET / -> Amazon EBS Amazon Elastic Block Store (EBS) API",
+    "amazon-ebs-openapi.yml: tagged paths POST / -> Amazon EBS Amazon Elastic Block Store (EBS) API",
+    "amazon-ebs-openapi.yml: declared missing tag: Amazon EBS Amazon Elastic Block Store (EBS) API",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-ebs-attachvolume-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-ebs-createsnapshot-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-ebs-deletevolume-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-ebs-describesnapshots-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-ebs-detachvolume-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

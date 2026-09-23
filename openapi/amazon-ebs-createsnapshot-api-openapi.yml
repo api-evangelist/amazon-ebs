@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: 'Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #CreateSnapshot #Create Snapshot #Create Snapshot API'
+  title: 'Amazon EBS Amazon Elastic Block Store (EBS) #Create…'
   description: Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.
   version: '2016-11-15'
   contact:
@@ -14,7 +14,7 @@ servers:
 - url: https://ec2.amazonaws.com
   description: Amazon EC2/EBS API endpoint
 tags:
-- name: '#CreateSnapshot'
+- name: Createsnapshot
 paths:
   /#CreateSnapshot:
     post:
@@ -62,7 +62,7 @@ paths:
         '400':
           description: Bad request error.
       tags:
-      - '#CreateSnapshot'
+      - Createsnapshot
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: 'Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #AttachVolume #Attach Volume #Attach Volume API'
+  title: 'Amazon EBS Amazon Elastic Block Store (EBS) #Attach Volume…'
   description: Amazon EBS provides persistent block storage volumes for use with Amazon EC2 instances, offering consistent and low-latency performance for workloads that require persistent storage.
   version: '2016-11-15'
   contact:
