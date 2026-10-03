@@ -6,9 +6,7 @@
   "outputs": [
     "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 5 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -22,15 +20,9 @@
     "amazon-ebs-openapi.yml: tagged paths POST /#CreateSnapshot -> Amazon EBS Amazon Elastic Block Store (EBS) API",
     "amazon-ebs-openapi.yml: tagged paths GET /#DescribeSnapshots -> Amazon EBS Amazon Elastic Block Store (EBS) API",
     "amazon-ebs-openapi.yml: declared missing tag: Amazon EBS Amazon Elastic Block Store (EBS) API",
-    "superseded outputs removed: amazon-ebs-attachvolume-api-openapi.yml, amazon-ebs-createsnapshot-api-openapi.yml, amazon-ebs-deletevolume-api-openapi.yml, amazon-ebs-describesnapshots-api-openapi.yml, amazon-ebs-detachvolume-api-openapi.yml",
-    "apis.yml register: written (+0 apis, 1 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-ebs-attachvolume-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-ebs-createsnapshot-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-ebs-deletevolume-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-ebs-describesnapshots-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-ebs-detachvolume-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

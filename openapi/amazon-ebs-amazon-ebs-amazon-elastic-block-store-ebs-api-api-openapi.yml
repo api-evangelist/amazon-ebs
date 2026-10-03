@@ -429,18 +429,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    DescribeVolumesResult:
-      type: object
-      properties:
-        volumeSet:
-          type: array
-          items:
-            $ref: '#/components/schemas/Volume'
-          example:
-          - vol-0abc123def456789
-        nextToken:
-          type: string
-          example: example-string
     Volume:
       type: object
       properties:
@@ -530,6 +518,18 @@ components:
           example:
           - key: example-string
             value: example-string
+    DescribeVolumesResult:
+      type: object
+      properties:
+        volumeSet:
+          type: array
+          items:
+            $ref: '#/components/schemas/Volume'
+          example:
+          - vol-0abc123def456789
+        nextToken:
+          type: string
+          example: example-string
   securitySchemes:
     aws_sigv4:
       type: apiKey
