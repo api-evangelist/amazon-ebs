@@ -79,6 +79,9 @@ apis:
   - type: Examples
     url: examples/amazon-ebs-volume-example.json
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-ebs-capability-edges.yml
+  name: Amazon EBS Business Capability Map
 - type: Website
   url: https://aws.amazon.com/ebs/
 - type: AgenticAccess

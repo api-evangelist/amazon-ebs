@@ -1,0 +1,24 @@
+slug: amazon-ebs
+provider: Amazon EBS
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Amazon EBS Amazon Elastic Block Store (EBS) API
+  spec_file: amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: POST /  createVolume  Amazon EBS Create Volume; POST /#AttachVolume  attachVolume; POST /#CreateSnapshot  createSnapshot
+  reason: Operations provision, attach, detach and snapshot persistent block storage volumes for compute
+    instances — squarely compute/storage/cloud infrastructure management.
