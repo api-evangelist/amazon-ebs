@@ -1,4 +1,4 @@
-# Amazon EBS (amazon-ebs)
+# Amazon EBS
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,74 +66,186 @@
 
 Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance in the same Availability Zone, offering consistent and low-latency performance for workloads that require persistent storage.
 
-**APIs.json:** [https://aws.amazon.com/ebs/](https://aws.amazon.com/ebs/)
+**Areas:** Amazon Web Services · AWS · Block Storage · EBS · EC2 · Snapshots · Storage · Volumes
 
-## Tags
+## Amazon EBS on APIs.io
 
-- Amazon Web Services
-- AWS
-- Block Storage
-- EBS
-- EC2
-- Snapshots
-- Storage
-- Volumes
+Everything profiled for Amazon EBS is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-ebs/](https://apis.io/providers/amazon-ebs/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+- [Amazon EBS Amazon EBS Amazon Elastic Block Store (EBS) API](https://apis.io/apis/amazon-ebs/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api/) — The Amazon EBS Amazon Elastic Block Store (EBS) API API from Amazon EBS — 1 operation(s) for amazon ebs amazon elastic block store (ebs) api.
 
-## APIs
+### Published properties
 
-### Amazon EBS API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-API for managing Amazon EBS volumes, snapshots, and related resources through the EC2 API.
+#### Arazzo workflows (6)
 
-- **Base URL:** `https://ec2.amazonaws.com`
+Multi-step workflows that chain operations into a business task.
 
-#### Properties
+- [Amazon EBS Clone Volume via Snapshot](https://apis.io/arazzos/amazon-ebs/amazon-ebs-clone-volume-via-snapshot-workflow/)
+- [Amazon EBS Detach and Delete Volume](https://apis.io/arazzos/amazon-ebs/amazon-ebs-detach-and-delete-volume-workflow/)
+- [Amazon EBS Inventory Volumes and Snapshots](https://apis.io/arazzos/amazon-ebs/amazon-ebs-inventory-volumes-and-snapshots-workflow/)
+- [Amazon EBS Provision and Attach Volume](https://apis.io/arazzos/amazon-ebs/amazon-ebs-provision-and-attach-volume-workflow/)
+- [Amazon EBS Restore Volume from Snapshot](https://apis.io/arazzos/amazon-ebs/amazon-ebs-restore-volume-from-snapshot-workflow/)
+- [Amazon EBS Snapshot and Verify Volume](https://apis.io/arazzos/amazon-ebs/amazon-ebs-snapshot-and-verify-volume-workflow/)
 
-- [Documentation](https://docs.aws.amazon.com/ebs/latest/userguide/)
-- [OpenAPI](openapi/amazon-ebs-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-ebs.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-ebs.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/amazon-ebs-volume-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/amazon-ebs-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Pricing](https://aws.amazon.com/ebs/pricing/)
-- [Getting Started](https://aws.amazon.com/ebs/getting-started/)
-- [F A Q](https://aws.amazon.com/ebs/faqs/)
-- [Documentation](https://docs.aws.amazon.com/ebs/latest/userguide/)
-- [API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/)
-- [Documentation](https://docs.aws.amazon.com/cli/latest/reference/ec2/)
-- [Security](https://docs.aws.amazon.com/ebs/latest/userguide/security.html)
-- [JSON Structure](json-structure/amazon-ebs-volume-structure.json)
-- [Example](examples/amazon-ebs-volume-example.json)
+#### Agentic access (1)
 
-## Common Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [Portal](https://aws.amazon.com/)
-- [Developer Portal](https://aws.amazon.com/)
+- [Amazon Ebs Agentic Access](https://apis.io/agentic-access/amazon-ebs/amazon-ebs-agentic-access/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [Amazon EBS Volume](https://apis.io/schemas/amazon-ebs/amazon-ebs-volume/)
+- [DescribeVolumesResult](https://apis.io/schemas/amazon-ebs/ebs-openapi-describe-volumes-result/)
+- [Volume](https://apis.io/schemas/amazon-ebs/ebs-openapi-volume/)
+
+#### JSON Structure (3)
+
+Data models expressed in JSON Structure.
+
+- [Amazon Ebs Volume Structure](https://apis.io/json-structure/amazon-ebs/amazon-ebs-volume-structure/)
+- [Ebs Openapi Describe Volumes Result Structure](https://apis.io/json-structure/amazon-ebs/ebs-openapi-describe-volumes-result-structure/)
+- [Ebs Openapi Volume Structure](https://apis.io/json-structure/amazon-ebs/ebs-openapi-volume-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Ebs Context](https://apis.io/jsonld/amazon-ebs/amazon-ebs-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Ebs Vocabulary](https://apis.io/vocabularies/amazon-ebs/amazon-ebs-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Amazon Ebs Volume Example](https://apis.io/examples/amazon-ebs/amazon-ebs-volume-example/)
+- [Ebs Openapi Describe Volumes Result Example](https://apis.io/examples/amazon-ebs/ebs-openapi-describe-volumes-result-example/)
+- [Ebs Openapi Volume Example](https://apis.io/examples/amazon-ebs/ebs-openapi-volume-example/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Amazon EBS Amazon Elastic Block Store (EBS) API](https://apis.io/collections/amazon-ebs/open-amazon-ebs/)
+- [Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API API](https://apis.io/collections/amazon-ebs/open-amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api/)
+- [Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #AttachVolume API](https://apis.io/collections/amazon-ebs/open-amazon-ebs-attachvolume-api/)
+- [Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #CreateSnapshot API](https://apis.io/collections/amazon-ebs/open-amazon-ebs-createsnapshot-api/)
+- [Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #DeleteVolume API](https://apis.io/collections/amazon-ebs/open-amazon-ebs-deletevolume-api/)
+- [Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #DescribeSnapshots API](https://apis.io/collections/amazon-ebs/open-amazon-ebs-describesnapshots-api/)
+- [Amazon EBS Amazon Elastic Block Store (EBS) Amazon EBS Amazon Elastic Block Store (EBS) API #DetachVolume API](https://apis.io/collections/amazon-ebs/open-amazon-ebs-detachvolume-api/)
+- [Amazon EBS Amazon Elastic Block Store (EBS) API](https://apis.io/collections/amazon-ebs/postman-amazon-ebs/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon EBS — jsonschema rules](https://apis.io/rules/amazon-ebs/amazon-ebs-jsonschema-spectral-rules/)
+- [Amazon EBS API Rules](https://apis.io/rules/amazon-ebs/amazon-ebs-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Ebs Authentication](https://apis.io/security/amazon-ebs/amazon-ebs-authentication/)
+- [Amazon Ebs Domain Security](https://apis.io/security/amazon-ebs/amazon-ebs-domain-security/)
+- [Amazon Ebs Trust Center](https://apis.io/security/amazon-ebs/amazon-ebs-trust-center/)
+- [Amazon Ebs Vulnerability Disclosure](https://apis.io/security/amazon-ebs/amazon-ebs-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Ebs Plans Pricing](https://apis.io/plans/amazon-ebs/amazon-ebs-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Ebs Rate Limits](https://apis.io/rate-limits/amazon-ebs/amazon-ebs-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Ebs Finops](https://apis.io/finops/amazon-ebs/amazon-ebs-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/ebs/)
 - [Documentation](https://docs.aws.amazon.com/)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/support/)
 - [Blog](https://aws.amazon.com/blogs/)
-- [GitHub Organization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/)
-- [Sign Up](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [Status Page](https://status.aws.amazon.com/)
-- [Knowledge Center](https://repost.aws/knowledge-center)
-- [YouTube](https://www.youtube.com/user/AmazonWebServices)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/amazon-web-services)
-- [Contact](https://aws.amazon.com/contact-us/)
 - [Security](https://aws.amazon.com/security/)
 - [Compliance](https://aws.amazon.com/compliance/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Spectral Rules](rules/amazon-ebs-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-ebs-vocabulary.yaml)
-- [Integrations](https://aws.amazon.com/marketplace)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://status.aws.amazon.com/)
+
+## API Evangelist rating
+
+**Kin Score 57.7** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.9 |
+| Contract quality | 63.9 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 65.5 |
+| Access clarity | 61.8 |
+
+**Agent readiness 24.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-ebs/](https://apis.io/providers/amazon-ebs/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon EBS: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-ebs/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
