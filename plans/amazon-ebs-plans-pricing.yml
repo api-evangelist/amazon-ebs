@@ -1,0 +1,63 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/ebs/pricing/
+sources:
+- https://aws.amazon.com/ebs/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: Main EBS rate tables render prices via templated placeholders ({priceOf!...}) that are not resolved
+  in the page text, so per-GB/IOPS rates are not visible. Numeric figures appear only in illustrative
+  pricing examples (e.g. $0.08 per GB-month for gp3 'in a region that charges...') and in the Free Tier
+  credit amount; the $0.75 DSU-Hour FSR price is stated as an actual price for US-East. Charging is provisioned-capacity/usage
+  based.
+plan_count: 2
+currency: USD
+plans:
+- name: Fast Snapshot Restore (example pricing, US-East N. Virginia)
+  price_text: The price of 1 DSU-Hour is $0.75.
+  price: 0.75
+  currency: USD
+  period: per-use
+  unit: DSU-Hour per snapshot per Availability Zone
+- name: AWS Free Tier
+  price_text: up to $200 in AWS Free Tier credits
+  price: 200
+  currency: USD
+  period: none
+  unit: credits
+  included_quota: 30 GB of storage, 2 million I/Os, and 1 GB of snapshot storage
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  - credit
+  plans:
+  - name: Fast Snapshot Restore (example pricing, US-East N. Virginia)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: AWS Free Tier
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    periods:
+    - none
