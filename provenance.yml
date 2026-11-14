@@ -5,6 +5,9 @@ artifacts:
   agentic-access/amazon-ebs-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/amazon-ebs-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   arazzo/amazon-ebs-clone-volume-via-snapshot-workflow.yml:
     method: derived
     evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
@@ -29,6 +32,15 @@ artifacts:
   capabilities/amazon-ebs-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  cli/amazon-ebs-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api
@@ -71,6 +83,27 @@ artifacts:
   collections/amazon-ebs.postman_collection.json:
     method: derived
     evidence: openapi/amazon-ebs
+  compliance/amazon-ebs-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-ebs-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-ebs-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-ebs-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-ebs-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-ebs-error-codes.yml:
+    method: searched
+    evidence: declared in the artifact
+  errors/amazon-ebs-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-ebs-volume-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -86,6 +119,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-ebs-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -93,6 +129,24 @@ artifacts:
     method: searched
     evidence: declared in the artifact
   json-ld/amazon-ebs-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ebs-get-snapshot-block-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ebs-get-snapshot-block-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ebs-list-snapshot-blocks-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ebs-list-snapshot-blocks-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ebs-put-snapshot-block-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ebs-put-snapshot-block-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-ebs-volume-schema.json:
@@ -116,7 +170,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -185,23 +239,52 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-ebs-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml:
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-ebs-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-ebs-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-ebs-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-ebs-mcp.yml:
     method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    evidence: declared in the artifact
+  openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-ebs-blocks-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-ebs-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-ebs-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-ebs-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
   postman/amazon-ebs.postman_collection.json:
     method: derived
     evidence: openapi/amazon-ebs
+  privacy/amazon-ebs-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-ebs-rate-limits.yml:
+    method: searched
+    evidence: declared in the artifact
+  regulatory/amazon-ebs-regulatory-posture.yml:
+    method: unknown
+    evidence: no authorship recorded
+  rules/amazon-ebs-jsonschema-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
-  rules/amazon-ebs-jsonschema-spectral-rules.yml:
+  rules/amazon-ebs-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-ebs-spectral-rules.yml:
@@ -220,8 +303,27 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/ebs-2019-11-02.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/ebs/service/2019-11-02/ebs-2019-11-02.json
+      (sha256 568085c6d3a0, fetched 2026-11-11T21:08:44+00:00)
+  terms/amazon-ebs-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-ebs-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-ebs-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-ebs-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-ebs-repost-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ebs-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ebs-well-known.yml:
     method: unknown
     evidence: no authorship recorded

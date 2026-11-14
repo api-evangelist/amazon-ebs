@@ -1,8 +1,9 @@
 name: Amazon EBS
-description: Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon
-  EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to
-  any running instance in the same Availability Zone, offering consistent and low-latency performance
-  for workloads that require persistent storage.
+
+description: Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon EC2 instances. EBS volumes are highly
+  available and reliable storage volumes that can be attached to any running instance in the same Availability Zone, offering consistent and low-latency
+  performance for workloads that require persistent storage.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -15,7 +16,9 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 specificationVersion: '0.23'
+
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -26,17 +29,22 @@ accessModel:
   gated_source:
   - onboarding
   label: Freemium · Self-serve signup
-  confidence: medium
+  confidence: high
   source:
   - plans
   - authentication
+  - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+
 url: https://aws.amazon.com/ebs/
+
 created: '2024-01-15'
+
 modified: '2026-09-16'
+
 tags:
 - Amazon Web Services
 - Block Storage
@@ -54,42 +62,54 @@ tags_raw:
 - Snapshots
 - Storage
 - Volumes
-apis:
-- aid: amazon-ebs:amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api
-  name: Amazon EBS Amazon EBS Amazon Elastic Block Store (EBS) API
-  description: >-
-    The Amazon EBS Amazon Elastic Block Store (EBS) API API from Amazon EBS — 1 operation(s) for amazon
-    ebs amazon elastic block store (ebs) api.
-  baseURL: https://ec2.amazonaws.com
-  tags: []
-  tags_raw:
-  - Amazon EBS Amazon Elastic Block Store (EBS) API
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/ebs/latest/userguide/
-  - type: JSONSchema
-    url: json-schema/amazon-ebs-volume-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-ebs-context.jsonld
-  - type: Pricing
-    url: https://aws.amazon.com/ebs/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/ebs/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/ebs/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
-  - type: Security
-    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
-  - type: JSONStructure
-    url: json-structure/amazon-ebs-volume-structure.json
-  - type: Examples
-    url: examples/amazon-ebs-volume-example.json
+
 common:
+- type: Spectral
+  url: rules/amazon-ebs-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-ebs-rules.yml
+- type: Spectral
+  url: rules/amazon-ebs-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-ebs-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-ebs-data-model.yml
+- type: CLI
+  url: cli/amazon-ebs-cli.yml
+- type: Idempotency
+  url: conventions/amazon-ebs-conventions.yml
+- type: Conventions
+  url: conventions/amazon-ebs-conventions.yml
+- type: Lifecycle
+  url: lifecycle/amazon-ebs-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/amazon-ebs-error-codes.yml
+- type: ErrorCatalog
+  url: errors/amazon-ebs-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-ebs-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-ebs-llms.txt
+- type: SecurityTxt
+  url: well-known/amazon-ebs-security.txt
+- type: SecurityTxt
+  url: well-known/amazon-ebs-repost-security.txt
+- type: WellKnown
+  url: well-known/amazon-ebs-well-known.yml
+- type: Hosts
+  url: hosts/amazon-ebs-hosts.yml
+- type: IntegrationEdges
+  url: integrations/amazon-ebs-integration-edges.yml
+- type: Vendors
+  url: vendors/amazon-ebs-vendors.yml
+- type: SDKs
+  url: packages/amazon-ebs-packages.yml
+- type: Packages
+  url: packages/amazon-ebs-packages.yml
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: GettingStarted
+  url: https://developer.amazon.com/frustration-free-setup
 - type: Plans
   url: plans/amazon-ebs-plans-pricing.yml
 - type: RateLimits
@@ -170,19 +190,15 @@ common:
 - type: Features
   data:
   - name: Multiple Volume Types
-    description: Choose from gp3, gp2, io2, io1, st1, sc1, and io2 Block Express volumes optimized for
-      different workloads.
+    description: Choose from gp3, gp2, io2, io1, st1, sc1, and io2 Block Express volumes optimized for different workloads.
   - name: EBS Snapshots
-    description: Point-in-time backups stored in Amazon S3 for disaster recovery, migration, and data
-      sharing.
+    description: Point-in-time backups stored in Amazon S3 for disaster recovery, migration, and data sharing.
   - name: Encryption
-    description: AES-256 encryption at rest and in transit using AWS KMS customer-managed or AWS-managed
-      keys.
+    description: AES-256 encryption at rest and in transit using AWS KMS customer-managed or AWS-managed keys.
   - name: Elastic Volumes
     description: Dynamically modify volume size, performance, and type without detaching from instances.
   - name: Data Lifecycle Manager
-    description: Automate snapshot creation, retention, deletion, and cross-account sharing with policy-based
-      management.
+    description: Automate snapshot creation, retention, deletion, and cross-account sharing with policy-based management.
   - name: Multi-Attach
     description: Attach a single io2 volume to up to 16 EC2 instances simultaneously for high availability.
 - type: UseCases
@@ -215,9 +231,77 @@ common:
   url: vocabulary/amazon-ebs-vocabulary.yaml
 - type: Integrations
   url: https://aws.amazon.com/marketplace
+- type: UsageTerms
+  url: terms/amazon-ebs-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/amazon-ebs-privacy-policy.yml
+- type: Attestations
+  url: compliance/amazon-ebs-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-ebs-eligibility.yml
+- type: AIPreferences
+  url: ai-preferences/amazon-ebs-ai-preferences.yml
+
+apis:
+- aid: amazon-ebs:amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api
+  name: Amazon EBS Amazon EBS Amazon Elastic Block Store (EBS) API
+  description: The Amazon EBS Amazon Elastic Block Store (EBS) API API from Amazon EBS — 1 operation(s) for amazon ebs amazon elastic block store
+    (ebs) api.
+  baseURL: https://ebs.us-east-1.amazonaws.com
+  tags: []
+  tags_raw:
+  - Amazon EBS Amazon Elastic Block Store (EBS) API
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-amazon-ebs-amazon-elastic-block-store-ebs-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-volume-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ebs-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/ebs/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/ebs/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/ebs/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/security.html
+  - type: JSONStructure
+    url: json-structure/amazon-ebs-volume-structure.json
+  - type: Examples
+    url: examples/amazon-ebs-volume-example.json
+- aid: amazon-ebs:amazon-ebs-blocks-api
+  name: Amazon EBS Ebs Blocks API
+  description: The Ebs Blocks API from Amazon EBS — 2 operation(s) for ebs blocks.
+  baseURL: https://ebs.us-east-1.amazonaws.com
+  tags:
+  - Ebs Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ebs-blocks-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-put-snapshot-block-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-list-snapshot-blocks-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-get-snapshot-block-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-list-snapshot-blocks-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-get-snapshot-block-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-ebs-put-snapshot-block-response-schema.json
+
 maintainer:
   name: Kin Lane
   email: kin@apievangelist.com
+
 integrations:
 - name: Sign in
 - name: Agent Mode
@@ -228,5 +312,12 @@ integrations:
 - name: Become a Channel Partner
 - name: Sell in AWS Marketplace
 - name: Manage Your Account
+
 x-parent: amazon-web-services
+
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v6
